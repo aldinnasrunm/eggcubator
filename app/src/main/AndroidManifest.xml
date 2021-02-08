@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eggcubator">
-        <activity android:name=".Activity.ShowTemperatureActivity"></activity>
+        <activity android:name=".Activity.OnBoardingActivity"></activity>
+        <activity android:name=".Activity.ShowTemperatureActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
