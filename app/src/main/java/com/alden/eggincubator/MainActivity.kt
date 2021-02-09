@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.alden.eggincubator.Activity.OnBoardingActivity
 import com.alden.eggincubator.Activity.ShowTemperatureActivity
 import com.alden.eggincubator.databinding.ActivityMainBinding
 import com.google.firebase.database.DataSnapshot
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ShowTemperatureActivity::class.java))
         }
 
+        binding.btnOnBoarding.setOnClickListener{
+            startActivity(Intent(this, OnBoardingActivity::class.java))
+        }
 
     }
    private fun getStatus(){
