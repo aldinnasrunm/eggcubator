@@ -18,9 +18,14 @@ class ShowTemperatureActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityShowTemperatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
+
         /**
          * animation link https://lottiefiles.com/29847-owl-breaking-egg
          * https://lottiefiles.com/27777-chiki-chik
+         *
+         * list ToDo : tambahkan shimmer
+         *
          * */
 
         val refHum = database.getReference("FirebaseIOT").child("humidity")

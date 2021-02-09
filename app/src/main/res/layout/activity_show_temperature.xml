@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:elevation="200dp"
         android:gravity="center"
-        android:background="#56373737"
+        android:background="#fff"
         android:orientation="vertical">
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationEggCrack"
@@ -24,7 +24,7 @@
         <TextView
             android:text="Loading"
             android:textSize="22sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

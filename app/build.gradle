@@ -53,4 +53,9 @@ dependencies {
 
     //stepper library
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+
+    //leakcanary
+        // debugImplementation because LeakCanary should only run in debug builds.
+        debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+
 }
