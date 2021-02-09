@@ -19,7 +19,7 @@ class ShowTemperatureActivity : AppCompatActivity() {
         binding = ActivityShowTemperatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-
+        binding.llAnimation.visibility = View.VISIBLE
         /**
          * animation link https://lottiefiles.com/29847-owl-breaking-egg
          * https://lottiefiles.com/27777-chiki-chik
