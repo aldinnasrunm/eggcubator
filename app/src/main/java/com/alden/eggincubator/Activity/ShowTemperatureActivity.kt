@@ -3,6 +3,7 @@ package com.alden.eggincubator.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.alden.eggincubator.databinding.ActivityShowTemperatureBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,6 +18,10 @@ class ShowTemperatureActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityShowTemperatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        /**
+         * animation link https://lottiefiles.com/29847-owl-breaking-egg
+         * https://lottiefiles.com/27777-chiki-chik
+         * */
 
         val refHum = database.getReference("FirebaseIOT").child("humidity")
         val refTemp = database.getReference("FirebaseIOT").child("temperature")
@@ -37,6 +42,7 @@ class ShowTemperatureActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var temp = snapshot.value.toString()
                 binding.tvTemperature.text = "$temp deg"
+                initAnimation()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -45,6 +51,11 @@ class ShowTemperatureActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun initAnimation() {
+        binding.animationEggCrack.cancelAnimation()
+        binding.llAnimation.visibility = View.GONE
     }
 
 
