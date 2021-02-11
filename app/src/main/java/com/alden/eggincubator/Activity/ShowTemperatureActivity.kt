@@ -75,6 +75,6 @@ class ShowTemperatureActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         Log.d(TAG, "onBackPressed: activity finished")
-        this.finish()
+        finish()
     }
 }
