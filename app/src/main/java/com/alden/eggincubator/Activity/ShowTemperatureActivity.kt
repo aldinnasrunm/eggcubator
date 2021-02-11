@@ -19,7 +19,10 @@ class ShowTemperatureActivity : AppCompatActivity() {
         binding = ActivityShowTemperatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        binding.llAnimation.visibility = View.VISIBLE
+//        binding.llAnimation.visibility = View.VISIBLE
+        binding.txtHum.visibility = View.GONE
+        binding.txtTemp.visibility = View.GONE
+        binding.shimmerLoading.startShimmer()
         /**
          * animation link https://lottiefiles.com/29847-owl-breaking-egg
          * https://lottiefiles.com/27777-chiki-chik
@@ -59,9 +62,19 @@ class ShowTemperatureActivity : AppCompatActivity() {
     }
 
     private fun initAnimation() {
+        binding.txtHum.visibility = View.VISIBLE
+        binding.txtTemp.visibility = View.VISIBLE
         binding.animationEggCrack.cancelAnimation()
-        binding.llAnimation.visibility = View.GONE
+//        binding.llAnimation.visibility = View.GONE
+        binding.shimmerLoading.apply {
+            stopShimmer()
+            visibility = View.GONE
+        }
     }
 
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Log.d(TAG, "onBackPressed: activity finished")
+        this.finish()
+    }
 }
