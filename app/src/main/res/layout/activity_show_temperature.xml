@@ -29,15 +29,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-<!--    shimmer loading animation -->
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerLoading"
+    <TextView
+        android:id="@+id/tvLastUpdate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include layout="@layout/layout_placeholder"/>
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:padding="8dp"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_secondary_variant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/llAnimation"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="LastUpdate : " />
     <TextView
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
