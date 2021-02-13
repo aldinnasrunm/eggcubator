@@ -21,10 +21,8 @@ class ShowTemperatureActivity : AppCompatActivity() {
         binding = ActivityShowTemperatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-//        binding.llAnimation.visibility = View.VISIBLE
-        binding.txtHum.visibility = View.GONE
-        binding.txtTemp.visibility = View.GONE
-        binding.shimmerLoading.startShimmer()
+        binding.llAnimation.visibility = View.VISIBLE
+
         /**
          * animation link https://lottiefiles.com/29847-owl-breaking-egg
          * https://lottiefiles.com/27777-chiki-chik
@@ -32,46 +30,16 @@ class ShowTemperatureActivity : AppCompatActivity() {
          * list ToDo : tambahkan shimmer -> done
          *
          * */
+
         theData()
         val refHum = database.getReference("FirebaseIOT").child("humidity")
         val refTemp = database.getReference("FirebaseIOT").child("temperature")
 
-//        refHum.addValueEventListener(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                var hum = snapshot.value.toString()
-//                binding.tvHumidity.text = "$hum %"
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Log.w(TAG, "Failed to read value.", error.toException())
-//            }
-//
-//        })
-//
-//        refTemp.addValueEventListener(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                var temp = snapshot.value.toString()
-//                binding.tvTemperature.text = "$temp deg"
-//                initAnimation()
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Log.w(TAG, "Failed to read value.", error.toException())
-//
-//            }
-//
-//        })
     }
 
     private fun initAnimation() {
-        binding.txtHum.visibility = View.VISIBLE
-        binding.txtTemp.visibility = View.VISIBLE
         binding.animationEggCrack.cancelAnimation()
-//        binding.llAnimation.visibility = View.GONE
-        binding.shimmerLoading.apply {
-            stopShimmer()
-            visibility = View.GONE
-        }
+        binding.llAnimation.visibility = View.GONE
     }
 
 
