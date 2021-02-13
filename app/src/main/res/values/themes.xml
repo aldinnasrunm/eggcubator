@@ -13,6 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="normalBackground" parent="CardView.Light">
+        <item name="background">@color/colorPrimary</item>
+    </style>
+
     <style name="TextBigDefault" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/black</item>
