@@ -82,8 +82,8 @@ class ShowTemperatureActivity : AppCompatActivity() {
 //        val current : LocalDateTime = LocalDateTime.now()
 //        val formatted = current.format(formatter)
 //        binding.tvLastUpdate.text = "Last Update : $formatted"
-        binding.tvTemperature.text = rtdbDataClass.temperature + " \u2103"
-        binding.tvHumidity.text = rtdbDataClass.humidity + "%"
+//        binding.tvTemperature.text = rtdbDataClass.temperature + " \u2103"
+//        binding.tvHumidity.text = rtdbDataClass.humidity + "%"
     }
 
     override fun onBackPressed() {

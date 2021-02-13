@@ -60,99 +60,300 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         app:cardCornerRadius="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardElevation="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/clShowRemainDay">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_incubation"
                 android:id="@+id/ivInkubasi"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:background="@color/greenMain"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvInkubasi"
-                style="@style/Text.Reguler.Bold.Medium"
+            <LinearLayout
+                android:id="@+id/llInkubasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Inkubasi"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/ivInkubasi"
                 app:layout_constraintStart_toEndOf="@+id/ivInkubasi"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/ivInkubasi">
+
+                <TextView
+                    android:id="@+id/tvInkubasi"
+                    style="@style/Text.Reguler.Bold.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inkubasi" />
+
+                <TextView
+                    android:id="@+id/tvInkubasiSub"
+                    style="@style/Text.Reguler.Thin.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Telur telah diinkubasi 12 hari" />
+            </LinearLayout>
+
+
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/tvInkubasi"
-                app:layout_constraintStart_toStartOf="@id/tvInkubasi"
-                tools:text="Telur telah diinkubasi 12 hari"
-                android:id="@+id/tvInkubasiSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                tools:text="12H"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="24dp"
-                style="@style/Text.Reguler.Bold.Big"
                 android:id="@+id/tvInkubasiStatus"
+                style="@style/Text.Reguler.Bold.Big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/llInkubasi"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="@+id/llInkubasi"
+                tools:text="12H" />
+
+            <View
+                android:id="@+id/vInkubasi"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@id/llInkubasi" />
+
+            <!--            Temperature-->
+
+            <ImageView
+                android:id="@+id/ivTemperature"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/yellowMain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vInkubasi" />
+
+            <LinearLayout
+                android:id="@+id/llTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/ivTemperature"
+                app:layout_constraintStart_toEndOf="@+id/ivTemperature"
+                app:layout_constraintTop_toTopOf="@+id/ivTemperature">
+
+                <TextView
+                    android:id="@+id/tvTemperature"
+                    style="@style/Text.Reguler.Bold.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Temperature" />
+
+                <TextView
+                    android:id="@+id/tvTemperatureSub"
+                    style="@style/Text.Reguler.Thin.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Temperatur ruang baik" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvTemperatureStatus"
+                style="@style/Text.Reguler.Bold.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/llTemperature"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/llTemperature"
+                tools:text="32°C" />
+
+            <View
+                android:id="@+id/vTemperature"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@id/llTemperature" />
+            <!--            Kelembaban-->
+
+
+            <ImageView
+                android:id="@+id/ivKelembaban"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/blueMain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vTemperature" />
+
+            <LinearLayout
+                android:id="@+id/llKelembaban"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/ivKelembaban"
+                app:layout_constraintStart_toEndOf="@+id/ivKelembaban"
+                app:layout_constraintTop_toTopOf="@+id/ivKelembaban">
+
+                <TextView
+                    android:id="@+id/tvKelembaban"
+                    style="@style/Text.Reguler.Bold.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kelembaban" />
+
+                <TextView
+                    android:id="@+id/tvKelembabanSub"
+                    style="@style/Text.Reguler.Thin.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Temperatur ruang baik" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvKelembabanStatus"
+                style="@style/Text.Reguler.Bold.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/llKelembaban"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/llKelembaban"
+                tools:text="32°C" />
+
+            <View
+                android:id="@+id/vKelembaban"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@id/llKelembaban" />
+            <!--            Jadwal Air-->
+            <ImageView
+                android:id="@+id/ivAir"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/blueMain"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vKelembaban" />
+
+            <LinearLayout
+                android:id="@+id/llAir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/ivAir"
+                app:layout_constraintStart_toEndOf="@+id/ivAir"
+                app:layout_constraintTop_toTopOf="@+id/ivAir">
+
+                <TextView
+                    android:id="@+id/tvAir"
+                    style="@style/Text.Reguler.Bold.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jadwal Air" />
+
+                <TextView
+                    android:id="@+id/tvAirSub"
+                    style="@style/Text.Reguler.Thin.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Temperatur ruang baik" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvAirStatus"
+                style="@style/Text.Reguler.Bold.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/llAir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/llAir"
+                tools:text="32°C" />
+
+            <View
+                android:id="@+id/vAir"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="32dp"
+                android:background="@color/colorGrey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llAir" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 
 
 
-    <TextView
-        android:id="@+id/txtTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="364dp"
-        android:text="TEMPERATURE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtTemp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="364dp"-->
+<!--        android:text="TEMPERATURE"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <TextView
-        android:id="@+id/tvTemperature"
-        style="@style/TextBigDefault"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTemp"
-        tools:text="32deg" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvTemperature"-->
+<!--        style="@style/TextBigDefault"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtTemp"-->
+<!--        tools:text="32deg" />-->
 
-    <TextView
-        android:id="@+id/txtHum"
-        android:text="Humidity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
-        android:layout_marginTop="64dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        tools:text="80%"
-        style="@style/TextBigDefault"
-        android:id="@+id/tvHumidity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtHum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <TextView-->
+<!--        android:id="@+id/txtHum"-->
+<!--        android:text="Humidity"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvTemperature"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <TextView-->
+<!--        tools:text="80%"-->
+<!--        style="@style/TextBigDefault"-->
+<!--        android:id="@+id/tvHumidity"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/txtHum"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
