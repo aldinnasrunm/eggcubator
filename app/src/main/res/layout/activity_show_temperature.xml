@@ -5,6 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ShowTemperatureActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clShowRemainDay"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_solid_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvShowRemainDay"
+            style="@style/Text.Main.Bold.Big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="21 hari lagi telur kamu akan menetas" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <LinearLayout
         android:background="@color/colorPrimary"
         android:id="@+id/llAnimation"
@@ -30,27 +58,73 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvLastUpdate"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:padding="8dp"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_secondary_variant"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/llAnimation"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="LastUpdate : " />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clShowRemainDay">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="24dp"
+                android:id="@+id/ivInkubasi"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@color/greenMain"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvInkubasi"
+                style="@style/Text.Reguler.Bold.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Inkubasi"
+                app:layout_constraintStart_toEndOf="@+id/ivInkubasi"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/tvInkubasi"
+                app:layout_constraintStart_toStartOf="@id/tvInkubasi"
+                tools:text="Telur telah diinkubasi 12 hari"
+                android:id="@+id/tvInkubasiSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                tools:text="12H"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                style="@style/Text.Reguler.Bold.Big"
+                android:id="@+id/tvInkubasiStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
     <TextView
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="364dp"
         android:text="TEMPERATURE"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="64dp"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTemperature"

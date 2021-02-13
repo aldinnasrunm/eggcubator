@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import com.alden.eggincubator.databinding.ActivityShowTemperatureBinding
+import com.alden.eggincubator.databinding.LayoutShowRemainDayBinding
 import com.alden.eggincubator.models.RTDBDataClass
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -77,10 +78,10 @@ class ShowTemperatureActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun inidView(rtdbDataClass: RTDBDataClass){
         initAnimation()
-        val formatter = DateTimeFormatter.ofPattern("H:m:ss")
-        val current : LocalDateTime = LocalDateTime.now()
-        val formatted = current.format(formatter)
-        binding.tvLastUpdate.text = "Last Update : $formatted"
+//        val formatter = DateTimeFormatter.ofPattern("H:m:ss")
+//        val current : LocalDateTime = LocalDateTime.now()
+//        val formatted = current.format(formatter)
+//        binding.tvLastUpdate.text = "Last Update : $formatted"
         binding.tvTemperature.text = rtdbDataClass.temperature + " \u2103"
         binding.tvHumidity.text = rtdbDataClass.humidity + "%"
     }
