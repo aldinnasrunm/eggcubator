@@ -61,4 +61,6 @@ dependencies {
         debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
     //shimmer dependency
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    //viewpager
+    implementation 'androidx.viewpager:viewpager:1.0.0'
 }
