@@ -16,4 +16,11 @@
     <color name="colorIndigo">#303F9F</color>
     <color name="colorGrey">#C9C9C9</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="greenMain">#00880D</color>
+    <color name="yellowMain">#FBAF18</color>
+    <color name="blueMain">#388BF2</color>
+    <color name="purpleMain">#822A8F</color>
+    <color name="orangeMain">#EF6402</color>
+    <color name="redMain">#EE2737</color>
+    <color name="dark">#333333</color>
 </resources>

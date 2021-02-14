@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnChange.setOnClickListener {
             val refDb = database.getReference("Variable").child("Value")
-                refDb.setValue(1)
+                refDb.setValue("on")
         }
         binding.btnOff.setOnClickListener {
             val refDb = database.getReference("Variable").child("Value")
-                refDb.setValue(0)
+                refDb.setValue("off")
         }
 
         binding.btnShowTemperature.setOnClickListener {

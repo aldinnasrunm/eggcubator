@@ -31,4 +31,24 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorPurple</item>
     </style>
+    <style name="Text.Main.Bold.Big" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="Text.Reguler.Bold.Medium" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Text.Reguler.Bold.Big" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="Text.Reguler.Thin.Small" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">8sp</item>
+    </style>
 </resources>
