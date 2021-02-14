@@ -78,7 +78,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="32dp"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="25dp"
+                app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -148,12 +148,12 @@
                     <!--            Temperature-->
 
                     <ImageView
+                        android:src="@drawable/ic_temperature"
                         android:id="@+id/ivTemperature"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/yellowMain"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vInkubasi" />
 
@@ -205,14 +205,13 @@
                         app:layout_constraintTop_toBottomOf="@id/llTemperature" />
                     <!--            Kelembaban-->
 
-
                     <ImageView
                         android:id="@+id/ivKelembaban"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/blueMain"
+                        android:src="@drawable/ic_kelembaban"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vTemperature" />
 
@@ -241,7 +240,6 @@
                             tools:text="Temperatur ruang baik" />
                     </LinearLayout>
 
-
                     <TextView
                         android:id="@+id/tvKelembabanStatus"
                         style="@style/Text.Reguler.Bold.Big"
@@ -269,7 +267,7 @@
                         android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/blueMain"
+                        android:src="@drawable/ic_jadwal"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vKelembaban" />
 
@@ -297,7 +295,6 @@
                             android:layout_height="wrap_content"
                             tools:text="Temperatur ruang baik" />
                     </LinearLayout>
-
 
                     <TextView
                         android:id="@+id/tvAirStatus"
