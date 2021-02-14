@@ -23,14 +23,14 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="chicki-animation.json"
+            app:lottie_fileName="glasshour.json"
             app:lottie_loop="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Loading"
-            android:textColor="@color/black"
+            android:textColor="@color/greenLight"
             android:textSize="22sp" />
     </LinearLayout>
 
@@ -179,7 +179,7 @@
                             style="@style/Text.Reguler.Thin.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Temperatur ruang baik" />
+                            android:text="Temperatur ruang baik" />
                     </LinearLayout>
 
 
@@ -237,7 +237,7 @@
                             style="@style/Text.Reguler.Thin.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Temperatur ruang baik" />
+                            android:text="Temperatur ruang baik" />
                     </LinearLayout>
 
                     <TextView

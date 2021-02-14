@@ -61,7 +61,8 @@ class ShowTemperatureActivity : AppCompatActivity() {
                 var rtdbData = RTDBDataClass(
                     dataT,
                     dataH,
-                    dataL
+                    dataL,
+                    "0","0"
                 )
                 Log.d(TAG, "onDataChange: $rtdbData")
 
