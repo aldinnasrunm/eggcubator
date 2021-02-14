@@ -32,4 +32,6 @@
     <string name="home_screen_title">Home</string>
     <string name="home_screen_text">Can\'t walk? then fly!</string>
     <string name="previous">previous</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
