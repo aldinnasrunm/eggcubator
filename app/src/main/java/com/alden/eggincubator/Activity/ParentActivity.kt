@@ -60,5 +60,9 @@ class ParentActivity : AppCompatActivity() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.vpList.adapter = null
+    }
 }
 

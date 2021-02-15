@@ -12,10 +12,7 @@ import com.alden.eggincubator.databinding.FragmentDashboardBinding
 import com.alden.eggincubator.models.CompleteTriggerData
 import com.alden.eggincubator.models.RTDBDataClass
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -23,6 +20,8 @@ import java.time.format.DateTimeFormatter
 
 class DashboardFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
+    lateinit var refListener : ValueEventListener
+    lateinit var ref : DatabaseReference
     lateinit var vLivedata : CompleteTriggerData
     lateinit var mightyDate : LocalDateTime
     private var binding: FragmentDashboardBinding? = null
@@ -44,6 +43,7 @@ class DashboardFragment : Fragment() {
         vLivedata = CompleteTriggerData()
         vLivedata.status.value = false
         binding?.llAnimation?.visibility = View.VISIBLE
+        ref =  fbdb.getReference("FirebaseIOT")
         initData()
 
 
@@ -51,8 +51,7 @@ class DashboardFragment : Fragment() {
     }
 
     private fun initData() {
-        val ref = fbdb.getReference("FirebaseIOT")
-        ref.addValueEventListener(object : ValueEventListener{
+        refListener = ref.addValueEventListener(object : ValueEventListener{
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onDataChange(snapshot: DataSnapshot) {
                 var dataH = snapshot.child("humidity").value.toString()
@@ -76,6 +75,7 @@ class DashboardFragment : Fragment() {
             }
 
         })
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -99,6 +99,7 @@ class DashboardFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        ref.removeEventListener(refListener)
         binding = null
     }
 }
