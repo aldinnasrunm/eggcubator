@@ -12,6 +12,8 @@
         app:cardElevation="8dp"
         app:cardCornerRadius="24dp"
         android:layout_marginStart="24dp"
+        android:focusable="true"
+        android:clickable="true"
         android:layout_marginEnd="24dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
@@ -51,7 +53,10 @@
     </androidx.cardview.widget.CardView>
     <!--    button power-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvShutDown"
         android:layout_marginTop="24dp"
+        android:focusable="true"
+        android:clickable="true"
         app:cardElevation="8dp"
         app:cardCornerRadius="24dp"
         android:layout_marginStart="24dp"
