@@ -42,6 +42,10 @@ class SettingFragment : Fragment() {
     }
 
     private fun popUpShutdown() {
+
+    }
+
+    private fun popUpReboot() {
         val vReboot : View = LayoutInflater.from(context).inflate(R.layout.popup_reboot,null, false)
         val btnOk : Button = vReboot.findViewById(R.id.btnRebootOk)
         val btnCancel : Button = vReboot.findViewById(R.id.btnRebootCancel)
@@ -57,9 +61,5 @@ class SettingFragment : Fragment() {
             Toast.makeText(context, "Cancel clicked", Toast.LENGTH_SHORT).show()
             rebootAlertDialog.cancel()
         }
-    }
-
-    private fun popUpReboot() {
-
     }
 }
