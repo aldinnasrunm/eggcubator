@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.FragmentDashboardBinding
+import com.alden.eggincubator.models.CompleteTriggerData
 import com.alden.eggincubator.models.RTDBDataClass
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.DataSnapshot
@@ -22,7 +23,7 @@ import java.time.format.DateTimeFormatter
 
 class DashboardFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
-
+    lateinit var vLivedata : CompleteTriggerData
     lateinit var mightyDate : LocalDateTime
     private var binding: FragmentDashboardBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,8 @@ class DashboardFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        vLivedata = CompleteTriggerData()
+        vLivedata.status.value = false
         binding?.llAnimation?.visibility = View.VISIBLE
         initData()
 
@@ -85,12 +88,12 @@ class DashboardFragment : Fragment() {
         val remainDay = 28 - exceededDay.toInt()
 
         binding?.tvShowRemainDay?.text = "$remainDay hari lagi telur\nkamu akan\nmenetas"
-        binding?.tvTemperatureStatus?.text = data.temperature +" \u2103"
+        binding?.tvTemperatureStatus?.text = data.temperature +"°C"
         binding?.tvKelembabanStatus?.text = data.humidity+"%"
-        binding?.tvInkubasiStatus?.text = "$exceededDay Day"
+        binding?.tvInkubasiStatus?.text = "$exceededDay Hari"
         binding?.tvInkubasiSub?.text = "Telur telah diinkubasi $exceededDay hari"
         binding?.llAnimation?.visibility = View.GONE
-
+        vLivedata.status.value = true
     }
 
 
