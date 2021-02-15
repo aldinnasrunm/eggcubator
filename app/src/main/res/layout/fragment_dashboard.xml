@@ -74,9 +74,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="48dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="64dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -203,6 +203,7 @@
                         android:layout_marginEnd="24dp"
                         android:background="@color/colorGrey"
                         app:layout_constraintTop_toBottomOf="@id/llTemperature" />
+
                     <!--            Kelembaban-->
 
                     <ImageView
@@ -237,7 +238,7 @@
                             style="@style/Text.Reguler.Thin.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Temperatur ruang baik" />
+                            android:text="Kelembaban ruang baik" />
                     </LinearLayout>
 
                     <TextView
@@ -273,13 +274,15 @@
 
                     <LinearLayout
                         android:id="@+id/llAir"
+                        android:layout_marginTop="14dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="@+id/ivAir"
+                        android:layout_marginBottom="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivAir"
-                        app:layout_constraintTop_toTopOf="@+id/ivAir">
+                        app:layout_constraintTop_toTopOf="@+id/vKelembaban">
 
                         <TextView
                             android:id="@+id/tvAir"
@@ -306,20 +309,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/llAir"
                         tools:text="32°C" />
-
-                    <View
-                        android:id="@+id/vAir"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="32dp"
-                        android:background="@color/colorGrey"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/llAir" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

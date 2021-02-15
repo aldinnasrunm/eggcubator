@@ -16,16 +16,16 @@
     <style name="normalBackground" parent="CardView.Light">
         <item name="background">@color/colorPrimary</item>
     </style>
-<!--    ViewPager style-->
+    <!--    ViewPager style-->
+    <!--        <item name="tabIndicatorFullWidth">true</item>-->
+    <!--        <item name="tabPaddingStart">8dp</item>-->
     <style name="AppTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabIndicatorColor">#00FFFFFF</item>
         <item name="tabIndicatorHeight">0dp</item>
-        <!--        <item name="tabIndicatorFullWidth">true</item>-->
-        <item name="tabPaddingStart">8dp</item>
-        <item name="tabPaddingTop">5dp</item>
-        <item name="tabPaddingBottom">5dp</item>
-        <item name="tabPaddingEnd">8dp</item>
-        <item name="tabGravity">fill</item>
+        <item name="tabPaddingTop">8dp</item>
+        <item name="tabPaddingBottom">8dp</item>
+        <item name="paddingStart">8dp</item>
+        <item name="tabGravity">start</item>
         <item name="android:gravity">center_vertical</item>
         <item name="tabTextAppearance">@color/colorGrey</item>
         <item name="tabSelectedTextColor">@color/greenMain</item>
