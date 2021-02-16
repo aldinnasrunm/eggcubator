@@ -34,4 +34,8 @@
     <string name="previous">previous</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mulai_ulang">Mulai Ulang?</string>
+    <string name="notif_sub_mulai_ulang">mulai ulang akan mereset seluruh data data kamu!!, apakah kamu yakin?</string>
+    <string name="ok_text">Iyaa</string>
+    <string name="cancel_text">Tidak</string>
 </resources>

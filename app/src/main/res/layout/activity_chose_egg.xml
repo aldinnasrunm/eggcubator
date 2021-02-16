@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ChoseEggActivity">
-
+<!--chicken-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvChickenEgg"
         android:layout_width="match_parent"
@@ -22,30 +22,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/Text.Reguler.Bold.Big"
+            <LinearLayout
+                android:id="@+id/llChickenEgg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginStart="24dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/rbChickenEgg"
+                app:layout_constraintStart_toEndOf="@+id/rbChickenEgg"
+                app:layout_constraintTop_toTopOf="@+id/rbChickenEgg">
+
+                <TextView
+                    android:id="@+id/tvChickenEgg"
+                    style="@style/Text.Reguler.Bold.Big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telur Ayam" />
+
+                <TextView
+                    android:id="@+id/tvChickenEggSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ini deskripsi telur ayam" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivChickenEgg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="Telur Ayam"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/greenMain"
+                app:layout_constraintBottom_toBottomOf="@+id/llChickenEgg"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/llChickenEgg" />
+
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbChickenEgg"
+                style="@style/Custom.Green.Radio"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                style="@style/Custom.Green.Radio"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-<!--    bebek -->
+    <!--duck-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDuckEgg"
         android:layout_width="match_parent"
@@ -62,29 +87,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/Text.Reguler.Bold.Big"
+            <LinearLayout
+                android:id="@+id/llDuckEgg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/rbDuckEgg"
+                app:layout_constraintStart_toEndOf="@+id/rbDuckEgg"
+                app:layout_constraintTop_toTopOf="@+id/rbDuckEgg">
+
+                <TextView
+                    android:id="@+id/tvDuckEgg"
+                    style="@style/Text.Reguler.Bold.Big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telur Duck" />
+
+                <TextView
+                    android:id="@+id/tvDuckEggSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ini deskripsi telur ayam" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivDuckEgg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="Telur Bebek"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/greenMain"
+                app:layout_constraintBottom_toBottomOf="@+id/llDuckEgg"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/llDuckEgg" />
+
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbDuckEgg"
+                style="@style/Custom.Green.Radio"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-<!--    Custom-->
+    <!--custom-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCustomEgg"
         android:layout_width="match_parent"
@@ -101,23 +152,49 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/Text.Reguler.Bold.Big"
+            <LinearLayout
+                android:id="@+id/llCustomEgg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/rbCustomEgg"
+                app:layout_constraintStart_toEndOf="@+id/rbCustomEgg"
+                app:layout_constraintTop_toTopOf="@+id/rbCustomEgg">
+
+                <TextView
+                    android:id="@+id/tvCustomEgg"
+                    style="@style/Text.Reguler.Bold.Big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom" />
+
+                <TextView
+                    android:id="@+id/tvCustomEggSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ini deskripsi telur ayam" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivCustomEgg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="Custom"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/greenMain"
+                app:layout_constraintBottom_toBottomOf="@+id/llCustomEgg"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/llCustomEgg" />
+
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbCustomEgg"
+                style="@style/Custom.Green.Radio"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
