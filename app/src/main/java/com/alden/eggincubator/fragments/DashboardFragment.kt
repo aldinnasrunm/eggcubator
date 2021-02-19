@@ -22,13 +22,8 @@ class DashboardFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
     lateinit var refListener : ValueEventListener
     lateinit var ref : DatabaseReference
-    lateinit var vLivedata : CompleteTriggerData
     lateinit var mightyDate : LocalDateTime
     private var binding: FragmentDashboardBinding? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,13 +35,9 @@ class DashboardFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        vLivedata = CompleteTriggerData()
-        vLivedata.status.value = false
         binding?.llAnimation?.visibility = View.VISIBLE
         ref =  fbdb.getReference("FirebaseIOT")
         initData()
-
-
 
     }
 
@@ -93,7 +84,6 @@ class DashboardFragment : Fragment() {
         binding?.tvInkubasiStatus?.text = "$exceededDay Hari"
         binding?.tvInkubasiSub?.text = "Telur telah diinkubasi $exceededDay hari"
         binding?.llAnimation?.visibility = View.GONE
-        vLivedata.status.value = true
     }
 
 
