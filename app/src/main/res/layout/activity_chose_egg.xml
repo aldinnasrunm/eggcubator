@@ -40,7 +40,7 @@
             app:cardElevation="18dp">
 
             <Button
-                android:id="@+id/btnChoseEgg"
+                android:id="@+id/btnChoseEggNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -48,40 +48,15 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="24dp"
                 android:text="Lanjutkan"
+                app:cornerRadius= "24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
-    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:elevation="50dp"-->
-    <!--        android:translationZ="50dp"-->
-    <!--        -->
-    <!--        android:background="@drawable/bg_top_tound_white"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent">-->
 
-    <!--        <Button-->
-    <!--            android:id="@+id/btnChoseEgg"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginStart="24dp"-->
-    <!--            android:layout_marginTop="24dp"-->
-    <!--            android:layout_marginEnd="24dp"-->
-    <!--            android:layout_marginBottom="24dp"-->
-    <!--            android:text="Lanjutkan"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -371,7 +346,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="48dp"
+                android:layout_marginBottom="150dp"
                 app:cardCornerRadius="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -433,5 +408,5 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
