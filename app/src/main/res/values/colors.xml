@@ -15,6 +15,7 @@
     <color name="colorPurple">#6c63ff</color>
     <color name="colorIndigo">#303F9F</color>
     <color name="colorGrey">#C9C9C9</color>
+    <color name="colorGreyMain">#DEDEDE</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="greenMain">#00880D</color>
     <color name="greenLight">#99CF9E</color>

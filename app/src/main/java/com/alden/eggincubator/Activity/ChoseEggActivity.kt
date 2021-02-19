@@ -12,18 +12,39 @@ class ChoseEggActivity : AppCompatActivity() {
         binding = ActivityChoseEggBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initButton()
+    }
+
+    private fun initButton() {
         binding.rbChickenEgg.setOnClickListener {
             binding.rbDuckEgg.isChecked = false
+            binding.rbGooseEgg.isChecked = false
+            binding.rbQuailEgg.isChecked = false
             binding.rbCustomEgg.isChecked = false
         }
         binding.rbDuckEgg.setOnClickListener {
             binding.rbCustomEgg.isChecked = false
             binding.rbChickenEgg.isChecked = false
+            binding.rbGooseEgg.isChecked = false
+            binding.rbQuailEgg.isChecked = false
         }
         binding.rbCustomEgg.setOnClickListener {
             binding.rbDuckEgg.isChecked = false
             binding.rbChickenEgg.isChecked = false
-
+            binding.rbGooseEgg.isChecked = false
+            binding.rbQuailEgg.isChecked = false
+        }
+        binding.rbGooseEgg.setOnClickListener {
+            binding.rbDuckEgg.isChecked = false
+            binding.rbChickenEgg.isChecked = false
+            binding.rbChickenEgg.isChecked = false
+            binding.rbQuailEgg.isChecked = false
+        }
+        binding.rbQuailEgg.setOnClickListener {
+            binding.rbDuckEgg.isChecked = false
+            binding.rbChickenEgg.isChecked = false
+            binding.rbGooseEgg.isChecked = false
+            binding.rbCustomEgg.isChecked = false
         }
     }
 }
