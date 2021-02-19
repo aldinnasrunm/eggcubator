@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btnOff"
         app:layout_constraintStart_toStartOf="@+id/btnOff" />
     <Button
-        android:text="click"
+        android:text="select egg"
         android:id="@+id/btnChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

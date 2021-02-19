@@ -45,6 +45,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.firebase:firebase-database:19.5.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -60,4 +62,6 @@ dependencies {
         debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
     //shimmer dependency
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    //viewpager
+    implementation 'androidx.viewpager:viewpager:1.0.0'
 }

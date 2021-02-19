@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ChoseEggActivity">
+
+    <TextView
+        android:id="@+id/tvChoseEggTitle"
+        style="@style/Text.Reguler.Bold.Big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Pilih Telurmu"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="50dp"
+        android:background="@drawable/bg_top_tound_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnChoseEgg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="Lanjutkan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChoseEggTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--chicken-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvChickenEgg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/margin_16"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteY="24dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llChickenEgg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbChickenEgg"
+                        app:layout_constraintStart_toEndOf="@+id/rbChickenEgg"
+                        app:layout_constraintTop_toTopOf="@+id/rbChickenEgg">
+
+                        <TextView
+                            android:id="@+id/tvChickenEgg"
+                            style="@style/Text.Main.Bold.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Telur Ayam" />
+
+                        <TextView
+                            android:id="@+id/tvChickenEggSub"
+                            style="@style/Text.Main.Reguler.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Waktu Inkubasi 21 hari" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivChickenEgg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/greenMain"
+                        app:layout_constraintBottom_toBottomOf="@+id/llChickenEgg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/llChickenEgg" />
+
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbChickenEgg"
+                        style="@style/Custom.Green.Radio"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleX="1.4"
+                        android:scaleY="1.4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <!--duck-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvDuckEgg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvChickenEgg">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llDuckEgg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbDuckEgg"
+                        app:layout_constraintStart_toEndOf="@+id/rbDuckEgg"
+                        app:layout_constraintTop_toTopOf="@+id/rbDuckEgg">
+
+                        <TextView
+                            android:id="@+id/tvDuckEgg"
+                            style="@style/Text.Main.Bold.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Telur Bebek" />
+
+                        <TextView
+                            android:id="@+id/tvDuckEggSub"
+                            style="@style/Text.Main.Reguler.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Waktu Inkubasi 28 hari" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivDuckEgg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/greenMain"
+                        app:layout_constraintBottom_toBottomOf="@+id/llDuckEgg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/llDuckEgg" />
+
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbDuckEgg"
+                        style="@style/Custom.Green.Radio"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleX="1.4"
+                        android:scaleY="1.4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <!--goose-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvGooseEgg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvDuckEgg">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llGooseEgg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbGooseEgg"
+                        app:layout_constraintStart_toEndOf="@+id/rbGooseEgg"
+                        app:layout_constraintTop_toTopOf="@+id/rbGooseEgg">
+
+                        <TextView
+                            android:id="@+id/tvGooseEgg"
+                            style="@style/Text.Main.Bold.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Telur Entok" />
+
+                        <TextView
+                            android:id="@+id/tvGooseEggSub"
+                            style="@style/Text.Main.Reguler.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Waktu Inkubasi 35 hari" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivGooseEgg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/greenMain"
+                        app:layout_constraintBottom_toBottomOf="@+id/llGooseEgg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/llGooseEgg" />
+
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbGooseEgg"
+                        style="@style/Custom.Green.Radio"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleX="1.4"
+                        android:scaleY="1.4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- quail-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvQuailEgg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvGooseEgg">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llQuailEgg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbQuailEgg"
+                        app:layout_constraintStart_toEndOf="@+id/rbQuailEgg"
+                        app:layout_constraintTop_toTopOf="@+id/rbQuailEgg">
+
+                        <TextView
+                            android:id="@+id/tvQuailEgg"
+                            style="@style/Text.Main.Bold.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Telur Puyuh" />
+
+                        <TextView
+                            android:id="@+id/tvQuailEggSub"
+                            style="@style/Text.Main.Reguler.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Waktu Inkubasi 14 hari" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivQuailEgg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/greenMain"
+                        app:layout_constraintBottom_toBottomOf="@+id/llQuailEgg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/llQuailEgg" />
+
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbQuailEgg"
+                        style="@style/Custom.Green.Radio"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleX="1.4"
+                        android:scaleY="1.4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <!--custom-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCustomEgg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="24dp"
+                android:layout_marginBottom="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvQuailEgg">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llCustomEgg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbCustomEgg"
+                        app:layout_constraintStart_toEndOf="@+id/rbCustomEgg"
+                        app:layout_constraintTop_toTopOf="@+id/rbCustomEgg">
+
+                        <TextView
+                            android:id="@+id/tvCustomEgg"
+                            style="@style/Text.Main.Bold.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Custom" />
+
+                        <TextView
+                            android:id="@+id/tvCustomEggSub"
+                            style="@style/Text.Main.Reguler.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Atur alat penetas telur" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivCustomEgg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/greenMain"
+                        app:layout_constraintBottom_toBottomOf="@+id/llCustomEgg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/llCustomEgg" />
+
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbCustomEgg"
+                        style="@style/Custom.Green.Radio"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleX="1.4"
+                        android:scaleY="1.4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

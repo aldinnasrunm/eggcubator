@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import com.alden.eggincubator.databinding.ActivityShowTemperatureBinding
-import com.alden.eggincubator.databinding.LayoutShowRemainDayBinding
 import com.alden.eggincubator.models.RTDBDataClass
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -61,7 +60,8 @@ class ShowTemperatureActivity : AppCompatActivity() {
                 var rtdbData = RTDBDataClass(
                     dataT,
                     dataH,
-                    dataL
+                    dataL,
+                    "0","0"
                 )
                 Log.d(TAG, "onDataChange: $rtdbData")
 

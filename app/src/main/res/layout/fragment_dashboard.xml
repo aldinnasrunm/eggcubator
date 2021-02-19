@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.ShowTemperatureActivity">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.DashboardFragment">
     <LinearLayout
         android:id="@+id/llAnimation"
         android:layout_width="match_parent"
@@ -24,14 +23,14 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="chicki-animation.json"
+            app:lottie_fileName="glasshour.json"
             app:lottie_loop="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Loading"
-            android:textColor="@color/black"
+            android:textColor="@color/greenLight"
             android:textSize="22sp" />
     </LinearLayout>
 
@@ -75,11 +74,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="48dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="64dp"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="25dp"
+                app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,18 +142,18 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/colorGrey"
+                        android:background="@color/colorGreyMain"
                         app:layout_constraintTop_toBottomOf="@id/llInkubasi" />
 
                     <!--            Temperature-->
 
                     <ImageView
+                        android:src="@drawable/ic_temperature"
                         android:id="@+id/ivTemperature"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/yellowMain"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vInkubasi" />
 
@@ -180,7 +179,7 @@
                             style="@style/Text.Reguler.Thin.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Temperatur ruang baik" />
+                            android:text="Temperatur ruang baik" />
                     </LinearLayout>
 
 
@@ -202,10 +201,10 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/colorGrey"
+                        android:background="@color/colorGreyMain"
                         app:layout_constraintTop_toBottomOf="@id/llTemperature" />
-                    <!--            Kelembaban-->
 
+                    <!--            Kelembaban-->
 
                     <ImageView
                         android:id="@+id/ivKelembaban"
@@ -213,7 +212,7 @@
                         android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/blueMain"
+                        android:src="@drawable/ic_kelembaban"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vTemperature" />
 
@@ -239,9 +238,8 @@
                             style="@style/Text.Reguler.Thin.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Temperatur ruang baik" />
+                            android:text="Kelembaban ruang baik" />
                     </LinearLayout>
-
 
                     <TextView
                         android:id="@+id/tvKelembabanStatus"
@@ -261,7 +259,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/colorGrey"
+                        android:background="@color/colorGreyMain"
                         app:layout_constraintTop_toBottomOf="@id/llKelembaban" />
                     <!--            Jadwal Air-->
                     <ImageView
@@ -270,19 +268,21 @@
                         android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/blueMain"
+                        android:src="@drawable/ic_jadwal"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/vKelembaban" />
 
                     <LinearLayout
                         android:id="@+id/llAir"
+                        android:layout_marginTop="14dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="@+id/ivAir"
+                        android:layout_marginBottom="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivAir"
-                        app:layout_constraintTop_toTopOf="@+id/ivAir">
+                        app:layout_constraintTop_toTopOf="@+id/vKelembaban">
 
                         <TextView
                             android:id="@+id/tvAir"
@@ -299,7 +299,6 @@
                             tools:text="Temperatur ruang baik" />
                     </LinearLayout>
 
-
                     <TextView
                         android:id="@+id/tvAirStatus"
                         style="@style/Text.Reguler.Bold.Big"
@@ -311,20 +310,6 @@
                         app:layout_constraintTop_toTopOf="@+id/llAir"
                         tools:text="32°C" />
 
-                    <View
-                        android:id="@+id/vAir"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="32dp"
-                        android:background="@color/colorGrey"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/llAir" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -332,4 +317,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.alden.eggincubator.Activity.ChoseEggActivity
 import com.alden.eggincubator.Activity.OnBoardingActivity
+import com.alden.eggincubator.Activity.ParentActivity
 import com.alden.eggincubator.Activity.ShowTemperatureActivity
 import com.alden.eggincubator.databinding.ActivityMainBinding
 import com.google.firebase.database.DataSnapshot
@@ -23,8 +25,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnChange.setOnClickListener {
-            val refDb = database.getReference("Variable").child("Value")
-                refDb.setValue("on")
+         startActivity(Intent(this, ChoseEggActivity::class.java))
         }
         binding.btnOff.setOnClickListener {
             val refDb = database.getReference("Variable").child("Value")
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnShowTemperature.setOnClickListener {
-            startActivity(Intent(this, ShowTemperatureActivity::class.java))
+            startActivity(Intent(this, ParentActivity::class.java))
         }
 
         binding.btnOnBoarding.setOnClickListener{
