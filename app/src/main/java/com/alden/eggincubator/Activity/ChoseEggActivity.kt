@@ -1,5 +1,6 @@
 package com.alden.eggincubator.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +17,11 @@ class ChoseEggActivity : AppCompatActivity() {
         setContentView(binding.root)
         initButton()
         binding.btnChoseEggNext.setOnClickListener {
-            Toast.makeText(this, eggData.getEgg(), Toast.LENGTH_SHORT).show()
+           if (eggData.getEgg() != null){
+               startActivity(Intent(this, PrepareActivity::class.java))
+           }else{
+               Toast.makeText(this, "please chose egg", Toast.LENGTH_SHORT).show()
+           }
         }
     }
 

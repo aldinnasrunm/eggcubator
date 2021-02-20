@@ -34,7 +34,6 @@ class ParentActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-//        completeTriggerData = ViewModelProvider(this,ViewModelProvider.Factory ).get(CompleteTriggerData::class.java)
         val mAdapter = ParentAdapter(supportFragmentManager)
         mAdapter.addFrag(DashboardFragment(), "Beranda")
         mAdapter.addFrag(SettingFragment(), "Pengaturan")
