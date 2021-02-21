@@ -39,6 +39,13 @@ class SettingFragment : Fragment() {
         binding.cvShutDown.setOnClickListener {
             popUpShutdown()
         }
+        binding.cvLampOff.setOnClickListener {
+            popUpLampOff()
+        }
+    }
+
+    private fun popUpLampOff() {
+
     }
 
     private fun popUpShutdown() {

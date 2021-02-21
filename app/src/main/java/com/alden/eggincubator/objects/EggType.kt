@@ -1,7 +1,7 @@
 package com.alden.eggincubator.objects
 
 public class EggType {
-    var eggType: String? = null
+    var eggType: String? = ""
 
     public fun setEgg(data: String) {
         eggType = data

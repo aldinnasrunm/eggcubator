@@ -3,11 +3,13 @@ package com.alden.eggincubator.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.ActivityChoseEggBinding
 import com.alden.eggincubator.objects.EggType
 
+private const val TAG = "ChoseEggActivity"
 class ChoseEggActivity : AppCompatActivity() {
     val eggData = EggType()
     lateinit var binding : ActivityChoseEggBinding
@@ -15,13 +17,25 @@ class ChoseEggActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChoseEggBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initData(eggData.getEgg())
         initButton()
         binding.btnChoseEggNext.setOnClickListener {
-           if (eggData.getEgg() != null){
+           if (!eggData.getEgg().equals("")){
                startActivity(Intent(this, PrepareActivity::class.java))
            }else{
                Toast.makeText(this, "please chose egg", Toast.LENGTH_SHORT).show()
            }
+        }
+    }
+
+    private fun initData(data :String) {
+        when(data){
+            "Chicken" -> binding.rbChickenEgg.isChecked = true
+            "Duck" -> binding.rbDuckEgg.isChecked = true
+            "Goose" -> binding.rbGooseEgg.isChecked = true
+            "Quail" -> binding.rbQuailEgg.isChecked = true
+            "Custom" -> binding.rbCustomEgg.isChecked = true
+            else -> "a"
         }
     }
 

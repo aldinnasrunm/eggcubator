@@ -112,6 +112,12 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="Text.Reguler.16" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="Text.Reguler.Thin.Small" parent="TextAppearance.AppCompat">
         <item name="fontFamily">@font/poppins_light</item>
         <item name="android:textColor">@color/dark</item>
