@@ -3,6 +3,7 @@ package com.alden.eggincubator.Activity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.alden.eggincubator.adapter.KonfirmasiAdapter
 import com.alden.eggincubator.databinding.ActivityPrepareBinding
 
 
@@ -18,13 +19,8 @@ class PrepareActivity : AppCompatActivity() {
             "Pastikan air sudah terisi",
             "Pastikan air sudah terisi"
         )
-
-        val arrayAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
-            this,
-            android.R.layout.simple_list_item_1,
-            arrayKeterangan
-        )
-        binding.lvKonfirmasi.adapter = arrayAdapter
+        val mAdapter = KonfirmasiAdapter(arrayKeterangan)
+        binding.rvKonfirmasi.adapter = mAdapter
 
     }
 }
