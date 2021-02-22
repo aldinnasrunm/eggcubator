@@ -3,6 +3,7 @@ package com.alden.eggincubator.Activity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alden.eggincubator.adapter.KonfirmasiAdapter
 import com.alden.eggincubator.databinding.ActivityPrepareBinding
 
@@ -20,7 +21,10 @@ class PrepareActivity : AppCompatActivity() {
             "Pastikan air sudah terisi"
         )
         val mAdapter = KonfirmasiAdapter(arrayKeterangan)
-        binding.rvKonfirmasi.adapter = mAdapter
+        binding.rvKonfirmasi.apply {
+            layoutManager = LinearLayoutManager(this@PrepareActivity)
+            adapter = mAdapter
+        }
 
     }
 }

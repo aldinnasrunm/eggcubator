@@ -9,6 +9,7 @@
         <variable
             name="CustomCallback"
             type="com.alden.eggincubator.objects.CustomValueCallback" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,15 +29,15 @@
             android:id="@+id/btnPlusDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()-> CustomCallback.DayPlus(CustomValue.day)}"
+            android:onClick="@{() -> CustomCallback.onIncreaseDay()}"
             android:text="+"
             app:layout_constraintBottom_toBottomOf="@+id/etDayCustom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/etDayCustom"
             app:layout_constraintTop_toTopOf="@+id/etDayCustom" />
-        <EditText
+        <TextView
             android:id="@+id/etDayCustom"
-            android:text="@{CustomValue.day}"
+            android:text="@{CustomCallback.dayes}"
             android:textAppearance="@style/Text.Reguler.16"
             app:layout_constraintStart_toEndOf="@id/txtDayCustom"
             app:layout_constraintEnd_toEndOf="parent"

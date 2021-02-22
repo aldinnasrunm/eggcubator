@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.ActivityChoseEggBinding
 import com.alden.eggincubator.objects.EggType
@@ -60,6 +62,7 @@ class ChoseEggActivity : AppCompatActivity() {
             binding.rbGooseEgg.isChecked = false
             binding.rbQuailEgg.isChecked = false
             eggData.setEgg("Custom")
+            popUpCustom()
         }
         binding.rbGooseEgg.setOnClickListener {
             binding.rbDuckEgg.isChecked = false
@@ -76,6 +79,13 @@ class ChoseEggActivity : AppCompatActivity() {
             eggData.setEgg("Quail")
         }
 
+    }
+
+    private fun popUpCustom() {
+        var popUpCustom = LayoutInflater.from(this).inflate(R.layout.layout_custom_egg_setting, null, false)
+        AlertDialog.Builder(this, R.style.CustomAlertDialog)
+            .setView(popUpCustom)
+            .show()
     }
 
 }
