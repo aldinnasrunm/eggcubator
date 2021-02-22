@@ -9,7 +9,9 @@
         <variable
             name="CustomCallback"
             type="com.alden.eggincubator.objects.CustomValueCallback" />
-
+        <variable
+            name="day"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

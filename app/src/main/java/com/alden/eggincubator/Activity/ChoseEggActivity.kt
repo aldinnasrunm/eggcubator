@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.ActivityChoseEggBinding
+import com.alden.eggincubator.databinding.LayoutCustomEggSettingBinding
 import com.alden.eggincubator.objects.EggType
 
 private const val TAG = "ChoseEggActivity"
@@ -82,9 +83,11 @@ class ChoseEggActivity : AppCompatActivity() {
     }
 
     private fun popUpCustom() {
-        var popUpCustom = LayoutInflater.from(this).inflate(R.layout.layout_custom_egg_setting, null, false)
+        var popBinding = LayoutCustomEggSettingBinding.inflate(LayoutInflater.from(this))
+//        var popUpCustom = LayoutInflater.from(this).inflate(R.layout.layout_custom_egg_setting, null, false)
+        popBinding.btnPlusDay.setOnClickListener { Toast.makeText(this, "plus",Toast.LENGTH_SHORT).show() }
         AlertDialog.Builder(this, R.style.CustomAlertDialog)
-            .setView(popUpCustom)
+            .setView(popBinding.root)
             .show()
     }
 

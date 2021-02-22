@@ -21,7 +21,7 @@ class CustomValueCallback() : ViewModel() {
     val tempMax: LiveData<Int> = _tempMax
     val humMin: LiveData<Int> = _humMin
     val humMax: LiveData<Int> = _humMax
-    val dayes = 9
+    val dayes = "9"
     lateinit var anchor: LiveData<String>
 
     fun onIncrease(_anchor: String) {
