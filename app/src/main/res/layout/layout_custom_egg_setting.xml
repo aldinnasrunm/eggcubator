@@ -28,11 +28,14 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btnPlusDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> CustomCallback.onIncreaseDay()}"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            app:strokeColor="@color/greenMain"
+            app:strokeWidth="1dp"
             android:text="+"
+            app:cornerRadius="50dp"
+            android:id="@+id/btnPlusDay"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="@+id/etDayCustom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/etDayCustom"

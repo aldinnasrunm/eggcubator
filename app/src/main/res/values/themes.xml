@@ -56,6 +56,8 @@
     <style name="custom.main.buton" parent="Widget.MaterialComponents.Button">
         <item name="background">@drawable/bg_round_white</item>
     </style>
+
+
     <!--Text style -->
     <style name="TextBigDefault" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">32sp</item>
