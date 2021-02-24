@@ -55,13 +55,13 @@ class ShowTemperatureActivity : AppCompatActivity() {
 //                Log.d(TAG, "onDataChange: " + snapshot.value)
                 var dataH = snapshot.child("humidity").value.toString()
                 var dataT = snapshot.child("temperature").value.toString()
-                var dataL = snapshot.child("led").value.toString()
+                var dataL = snapshot.child("lampu1").value.toString()
 
                 var rtdbData = RTDBDataClass(
                     dataT,
                     dataH,
                     dataL,
-                    "0","0"
+                    "0"
                 )
                 Log.d(TAG, "onDataChange: $rtdbData")
 

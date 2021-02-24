@@ -48,14 +48,12 @@ class DashboardFragment : Fragment() {
                 var dataH = snapshot.child("humidity").value.toString()
                 var dataT = snapshot.child("temperature").value.toString()
                 var dataL = snapshot.child("lampu1").value.toString()
-                var dataL2 = snapshot.child("lampu2").value.toString()
                 var dataD = snapshot.child("mightyDay").value.toString()
 
                 var rtdbDataClass = RTDBDataClass(
                     dataT,
                     dataH,
                     dataL,
-                    dataL2,
                     dataD
                 )
                 initView(rtdbDataClass)

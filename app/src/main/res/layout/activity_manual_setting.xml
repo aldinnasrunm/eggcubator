@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    tools:context=".Activity.ManualSettingActivity">
     <TextView
         android:id="@+id/tvSettingCustomEgg"
         android:text="ATUR SUHU"
@@ -14,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-<!--    day-->
+    <!--    day-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDayCustom"
         app:cardElevation="18dp"
@@ -78,7 +79,7 @@
                 tools:text="12" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-<!--    min Temperature-->
+    <!--    min Temperature-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvMinTemp"
         app:cardElevation="18dp"
@@ -103,7 +104,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="Hari :"
+                android:text="Min Temp :"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -142,7 +143,7 @@
                 tools:text="12" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-<!--    max Temperature-->
+    <!--    max Temperature-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvMaxTemp"
         app:cardElevation="18dp"
@@ -167,7 +168,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="Hari :"
+                android:text="Max Temp :"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -205,5 +206,41 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="12" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    //bottom buttom
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvNextParent"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:translationZ="75dp"
+        app:cardBackgroundColor="@color/transparent"
+        app:cardCornerRadius="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvNext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="-25dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="18dp">
+
+            <Button
+                android:id="@+id/btnManualSettingNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="Lanjutkan"
+                app:cornerRadius= "24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

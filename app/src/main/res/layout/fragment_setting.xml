@@ -98,7 +98,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvLampOff"
+        android:id="@+id/cvLamp"
         android:layout_marginTop="24dp"
         android:focusable="true"
         android:clickable="true"
@@ -124,12 +124,13 @@
             android:layout_width="32dp"
             android:layout_height="32dp"/>
         <TextView
+            android:id="@+id/tvLampStatus"
             android:layout_marginStart="24dp"
             app:layout_constraintStart_toEndOf="@id/ivLampOff"
             app:layout_constraintBottom_toBottomOf="@id/ivLampOff"
             app:layout_constraintTop_toTopOf="@id/ivLampOff"
             style="@style/Text.Reguler.Bold.Big"
-            android:text="Matikan Lampu"
+            android:text="Loading..."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageView

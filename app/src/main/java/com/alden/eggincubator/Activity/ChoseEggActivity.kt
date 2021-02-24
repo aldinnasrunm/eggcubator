@@ -22,15 +22,22 @@ class ChoseEggActivity : AppCompatActivity() {
         setContentView(binding.root)
         initData(eggData.getEgg())
         initButton()
+
         binding.btnChoseEggNext.setOnClickListener {
            if (!eggData.getEgg().equals("")){
-               startActivity(Intent(this, PrepareActivity::class.java))
+               if (eggData.getEgg().equals("Custom")){
+                   startActivity(Intent(this, ManualSettingActivity::class.java))
+               }else{
+                   startActivity(Intent(this, PrepareActivity::class.java))
+               }
            }else{
                Toast.makeText(this, "please chose egg", Toast.LENGTH_SHORT).show()
            }
         }
+
     }
 
+    //check last data
     private fun initData(data :String) {
         when(data){
             "Chicken" -> binding.rbChickenEgg.isChecked = true
@@ -63,7 +70,6 @@ class ChoseEggActivity : AppCompatActivity() {
             binding.rbGooseEgg.isChecked = false
             binding.rbQuailEgg.isChecked = false
             eggData.setEgg("Custom")
-            popUpCustom()
         }
         binding.rbGooseEgg.setOnClickListener {
             binding.rbDuckEgg.isChecked = false
