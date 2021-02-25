@@ -1,5 +1,6 @@
 package com.alden.eggincubator.Activity
 
+import android.content.Intent
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,10 @@ import com.alden.eggincubator.fragments.DashboardFragment
 import com.alden.eggincubator.fragments.SettingFragment
 import com.alden.eggincubator.models.CompleteTriggerData
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 @Suppress("DEPRECATION")
@@ -24,6 +29,9 @@ import com.google.android.material.tabs.TabLayout
 class ParentActivity : AppCompatActivity() {
     lateinit var completeTriggerData: CompleteTriggerData
     lateinit var binding : ActivityParentBinding
+    val fbdb = FirebaseDatabase.getInstance()
+    val eggRef = fbdb.getReference("SettingData")
+    lateinit var eggListener : ValueEventListener
     private val tabIcons = intArrayOf(
         R.drawable.ic_gray_home,
         R.drawable.ic_gray_setting
@@ -33,6 +41,7 @@ class ParentActivity : AppCompatActivity() {
         binding = ActivityParentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        chekSystemOff()
 
         val mAdapter = ParentAdapter(supportFragmentManager)
         mAdapter.addFrag(DashboardFragment(), "Beranda")
@@ -70,6 +79,24 @@ class ParentActivity : AppCompatActivity() {
             }
         )
 
+    }
+
+    private fun chekSystemOff() {
+        eggListener = eggRef.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var data = snapshot.child("isShutdown").value.toString()
+                if (data.equals("1")){
+                    startActivity(Intent(this@ParentActivity, SystemOffActivity::class.java))
+                    finish()
+                }else{
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 
     override fun onDestroy() {

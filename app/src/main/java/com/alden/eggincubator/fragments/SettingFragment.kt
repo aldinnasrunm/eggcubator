@@ -25,6 +25,7 @@ class SettingFragment : Fragment() {
     lateinit var binding: FragmentSettingBinding
     val lampRef = fbdb.getReference("FirebaseIOT")
     val settingRef = fbdb.getReference("SettingData")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -151,7 +152,7 @@ class SettingFragment : Fragment() {
     }
 
     private fun actionShutdown(){
-        settingRef.child("isStdown").setValue(1)
+        settingRef.child("isShutdown").setValue(1)
     }
 
     private fun actionReset(){

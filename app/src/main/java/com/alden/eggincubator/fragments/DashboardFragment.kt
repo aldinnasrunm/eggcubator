@@ -94,9 +94,7 @@ class DashboardFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initView(data: RTDBDataClass) {
-        val formatter = DateTimeFormatter.ofPattern("YYYY-MMMM-DD")
         val current : LocalDateTime = LocalDateTime.now()
-//        val theDay = LocalDateTime.parse("2020-12-22T16:33:55.707")
         mightyDate = LocalDateTime.parse(data.mightyDay)
         waterDate = LocalDateTime.parse(data.waterDay)
         var exceededDay : String = Duration.between(mightyDate, current).toDays().toString()

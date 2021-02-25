@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eggcubator">
-        <activity android:name=".Activity.StartActivity"></activity>
+        <activity android:name=".Activity.SystemOffActivity"></activity>
+        <activity android:name=".Activity.StartActivity" />
         <activity android:name=".Activity.ManualSettingActivity" />
         <activity android:name=".Activity.WelcomeActivity" />
         <activity android:name=".Activity.PrepareActivity" />
