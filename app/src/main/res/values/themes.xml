@@ -92,7 +92,7 @@
     <style name="Text.Main.Reguler.Small" parent="TextAppearance.AppCompat">
         <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">12sp</item>
     </style>
     <style name="Text.Reguler.Bold.Medium" parent="TextAppearance.AppCompat">
         <item name="fontFamily">@font/poppins_bold</item>

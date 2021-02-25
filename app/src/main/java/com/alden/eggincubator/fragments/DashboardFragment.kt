@@ -1,35 +1,43 @@
 package com.alden.eggincubator.fragments
 
+import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.FragmentDashboardBinding
-import com.alden.eggincubator.models.CompleteTriggerData
 import com.alden.eggincubator.models.RTDBDataClass
-import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.*
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class DashboardFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
     lateinit var refListener : ValueEventListener
+    val refEgg = fbdb.getReference("EggData")
+    lateinit var eggListener : ValueEventListener
     lateinit var ref : DatabaseReference
     lateinit var mightyDate : LocalDateTime
+    lateinit var waterDate : LocalDateTime
+    var estimateDay : Int = 0
     lateinit var binding: FragmentDashboardBinding
+    val waterInterfal : Long = 4
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDashboardBinding.inflate(inflater,container, false)
+        binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,24 +45,40 @@ class DashboardFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         isAnimationVisible(true)
         ref =  fbdb.getReference("FirebaseIOT")
+        getDate()
         initData()
 
     }
 
+    fun getDate(){
+        refEgg.child("day").addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val x = snapshot.getValue().toString()
+                estimateDay = x.toInt()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
+    }
+
     private fun initData() {
-        refListener = ref.addValueEventListener(object : ValueEventListener{
+        refListener = ref.addValueEventListener(object : ValueEventListener {
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onDataChange(snapshot: DataSnapshot) {
                 var dataH = snapshot.child("humidity").value.toString()
                 var dataT = snapshot.child("temperature").value.toString()
                 var dataL = snapshot.child("lampu1").value.toString()
                 var dataD = snapshot.child("mightyDay").value.toString()
+                var dataW = snapshot.child("waterDay").value.toString()
 
                 var rtdbDataClass = RTDBDataClass(
                     dataT,
                     dataH,
                     dataL,
-                    dataD
+                    dataD,
+                    dataW
                 )
                 initView(rtdbDataClass)
             }
@@ -67,24 +91,77 @@ class DashboardFragment : Fragment() {
 
     }
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initView(data: RTDBDataClass) {
         val formatter = DateTimeFormatter.ofPattern("YYYY-MMMM-DD")
         val current : LocalDateTime = LocalDateTime.now()
 //        val theDay = LocalDateTime.parse("2020-12-22T16:33:55.707")
         mightyDate = LocalDateTime.parse(data.mightyDay)
-        var exceededDay : String = Duration.between(mightyDate,current).toDays().toString()
-        val remainDay = 28 - exceededDay.toInt()
+        waterDate = LocalDateTime.parse(data.waterDay)
+        var exceededDay : String = Duration.between(mightyDate, current).toDays().toString()
+        var exceededWater : String = Duration.between(current, waterDate).toDays().toString()
+        val remainDay = estimateDay - exceededDay.toInt()
+        var remainDayWater = exceededWater.toInt()
 
-        binding.tvShowRemainDay.text = "$remainDay hari lagi telur\nkamu akan\nmenetas"
+        binding.tvShowRemainDay.text = "$remainDay hari lagi telur\nkamu akan\nmenetas "
         binding.tvTemperatureStatus.text = data.temperature +"°C"
         binding.tvKelembabanStatus.text = data.humidity+"%"
         binding.tvInkubasiStatus.text = "$exceededDay Hari"
         binding.tvInkubasiSub.text = "Telur telah diinkubasi $exceededDay hari"
-     isAnimationVisible(false)
+
+        if (remainDayWater > 0){
+            binding.tvAirStatus.text = "$exceededWater hari"
+            binding.tvAirSub.text = "Ganti air dalam $exceededWater hari"
+        }else{
+
+            popUpUniverse(
+                "Ganti Air",
+                "Apakah Kamu sudah mengganti air?"
+            )
+        }
+
+        isAnimationVisible(false)
     }
 
-    private fun isAnimationVisible(isVisible : Boolean){
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun popUpUniverse(title: String, subTitle: String) {
+        //initialize View
+        val vView: View = LayoutInflater.from(context).inflate(R.layout.popup_reboot, null, false)
+        val btnOk: Button = vView.findViewById(R.id.btnPopUpOk)
+        val btnCancel: Button = vView.findViewById(R.id.btnPopUpCancel)
+        val tvTitle: TextView = vView.findViewById(R.id.tvPopUpTitle)
+        val tvSubTitle: TextView = vView.findViewById(R.id.tvPopUpSubTitle)
+
+        //initialize text
+        tvTitle.text = title
+        tvSubTitle.text = subTitle
+        btnOk.text = "Sudah"
+        btnCancel.text = "Belum"
+
+        val universeAlert = AlertDialog.Builder(context, R.style.CustomAlertDialog)
+            .setView(vView)
+            .setCancelable(false)
+        val universeAlertDialog = universeAlert.show()
+
+        btnOk.setOnClickListener {
+           updateWater()
+            universeAlertDialog.dismiss()
+        }
+
+        btnCancel.setOnClickListener {
+            universeAlertDialog.cancel()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun updateWater() {
+        val current : LocalDateTime = LocalDateTime.now()
+        ref.child("waterDay").setValue(current.plusDays(waterInterfal).toString())
+    }
+
+    private fun isAnimationVisible(isVisible: Boolean){
         if (isVisible){
             binding.llAnimation.visibility = View.VISIBLE
             binding.animationLoading.playAnimation()

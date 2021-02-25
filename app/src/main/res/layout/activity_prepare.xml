@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.PrepareActivity">
-<!--    BUtton view-->
+<!--    Button view-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cvNextParent"
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             app:cardElevation="18dp">
 
             <Button
-                android:id="@+id/btnChoseEggNext"
+                android:id="@+id/btnPrepareNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"

@@ -1,5 +1,6 @@
 package com.alden.eggincubator.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,9 @@ class PrepareActivity : AppCompatActivity() {
         binding.rvKonfirmasi.apply {
             layoutManager = LinearLayoutManager(this@PrepareActivity)
             adapter = mAdapter
+        }
+        binding.btnPrepareNext.setOnClickListener {
+            startActivity(Intent(this, StartActivity::class.java))
         }
 
     }
