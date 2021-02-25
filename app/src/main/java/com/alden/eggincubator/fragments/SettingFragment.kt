@@ -42,25 +42,34 @@ class SettingFragment : Fragment() {
         initLampStatus()
 
         binding.cvReboot.setOnClickListener {
-
+            popUpUniverse(
+                "reset",
+                "Yakin ingin Reset?",
+                "jika reset maka seluruh datamu akan hilang"
+            )
         }
 
         binding.cvShutDown.setOnClickListener {
+            popUpUniverse(
+                "shutdown",
+                "Yakin ingin mematikan System?",
+                "Mematikan system maka anda harus menghidupkan alat lagi secara manual"
+            )
 
         }
 
         binding.cvLamp.setOnClickListener {
             if(lampStatus){
                 popUpUniverse(
-                    actionToast(),
+                    "lampOff",
                     "Yakin ingin Mematikan Lampu?",
                     "Kalo lampunya mati nanti kedinginan lho"
                 )
             }else {
                 popUpUniverse(
-                    changeLampStatus(false),
+                    "lampOn",
                     "Hidupkan Lampu?",
-                    "Hidupkan lampu untuk menyinari duniaku mwehehehe"
+                    "Hidupkan lampu untuk menyinari duniamu mwehehehe"
                 )
             }
         }
@@ -90,7 +99,7 @@ class SettingFragment : Fragment() {
     }
 
 
-    private fun popUpUniverse(action: Unit, title: String, subTitle: String) {
+    private fun popUpUniverse(command : String, title: String, subTitle: String) {
         //initialize View
         val vView: View = LayoutInflater.from(context).inflate(R.layout.popup_reboot, null, false)
         val btnOk: Button = vView.findViewById(R.id.btnPopUpOk)
@@ -108,16 +117,25 @@ class SettingFragment : Fragment() {
         val universeAlertDialog = universeAlert.show()
 
         btnOk.setOnClickListener {
-            action
+            fowardAction(command)
             universeAlertDialog.dismiss()
         }
 
         btnCancel.setOnClickListener {
-            Toast.makeText(context, "Cancel clicked", Toast.LENGTH_SHORT).show()
             universeAlertDialog.cancel()
         }
     }
 
+
+    private fun fowardAction(param : String){
+        when(param){
+            "lampOff" -> changeLampStatus(true)
+            "lampOn" -> changeLampStatus(false)
+            "shutdown" -> actionShutdown()
+            "reset" -> actionReset()
+            else -> actionToast()
+        }
+    }
 
 
     private fun changeLampStatus(wantDead : Boolean){
@@ -130,10 +148,17 @@ class SettingFragment : Fragment() {
 
     }
 
+    private fun actionShutdown(){
+
+    }
+
+    private fun actionReset(){
+
+    }
 
 
     private fun actionToast() {
-        Toast.makeText(context, "here ok sir", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Something wrong", Toast.LENGTH_SHORT).show()
     }
 
 }
