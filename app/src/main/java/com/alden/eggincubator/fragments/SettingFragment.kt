@@ -153,6 +153,7 @@ class SettingFragment : Fragment() {
 
     private fun actionShutdown(){
         settingRef.child("isShutdown").setValue(1)
+        activity?.finish()
     }
 
     private fun actionReset(){

@@ -1,8 +1,11 @@
 package com.alden.eggincubator
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import com.alden.eggincubator.Activity.*
 import com.alden.eggincubator.databinding.ActivityMainBinding
@@ -10,6 +13,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -20,8 +26,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        requestWindowFeature(1)
         setContentView(binding.root)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(Color.TRANSPARENT)
+        }
 
+        GlobalScope.launch {
+            delay(2000)
+            isReady()
+            finish()
+        }
 
         binding.btnChange.setOnClickListener {
          startActivity(Intent(this, WelcomeActivity::class.java))
@@ -38,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, OnBoardingActivity::class.java))
         }
 
-        isReady()
+
     }
 
     private fun isReady(){
