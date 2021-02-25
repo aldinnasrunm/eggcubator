@@ -76,11 +76,11 @@ class DashboardFragment : Fragment() {
         var exceededDay : String = Duration.between(mightyDate,current).toDays().toString()
         val remainDay = 28 - exceededDay.toInt()
 
-        binding?.tvShowRemainDay?.text = "$remainDay hari lagi telur\nkamu akan\nmenetas"
-        binding?.tvTemperatureStatus?.text = data.temperature +"°C"
-        binding?.tvKelembabanStatus?.text = data.humidity+"%"
-        binding?.tvInkubasiStatus?.text = "$exceededDay Hari"
-        binding?.tvInkubasiSub?.text = "Telur telah diinkubasi $exceededDay hari"
+        binding.tvShowRemainDay.text = "$remainDay hari lagi telur\nkamu akan\nmenetas"
+        binding.tvTemperatureStatus.text = data.temperature +"°C"
+        binding.tvKelembabanStatus.text = data.humidity+"%"
+        binding.tvInkubasiStatus.text = "$exceededDay Hari"
+        binding.tvInkubasiSub.text = "Telur telah diinkubasi $exceededDay hari"
      isAnimationVisible(false)
     }
 

@@ -3,10 +3,14 @@ package com.alden.eggincubator.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.alden.eggincubator.databinding.ActivityManualSettingBinding
+import com.alden.eggincubator.models.EggDataValue
+import com.google.firebase.database.FirebaseDatabase
 
 class ManualSettingActivity : AppCompatActivity() {
     lateinit var binding : ActivityManualSettingBinding
+    val fbdb = FirebaseDatabase.getInstance()
     var maxTempValue: Int = 30
     var dayValue: Int = 10
     var minTempValue: Int = 28
@@ -36,17 +40,22 @@ class ManualSettingActivity : AppCompatActivity() {
             maxTempIncrease(false, 30)
         }
         binding.btnManualSettingNext.setOnClickListener {
-            nextActivity()
+            isAnimationVisible(true)
+            updateEggData()
         }
         setView()
     }
 
-    private fun nextActivity() {
-        //ke aktivity selanjutnya
-
-        startActivity(Intent(this, PrepareActivity::class.java))
-        finish()
+    private fun updateEggData() {
+        val data = EggDataValue(dayValue,minTempValue, maxTempValue )
+        val revEgg = fbdb.getReference("EggData").setValue(data)
+        revEgg.addOnSuccessListener {
+            isAnimationVisible(false)
+            startActivity(Intent(this, PrepareActivity::class.java))
+            finish()
+        }
     }
+
 
     fun setView() {
         binding.tvCustomDayValue.text = dayValue.toString()
@@ -93,4 +102,14 @@ class ManualSettingActivity : AppCompatActivity() {
         }
         setView()
     }
+    private fun isAnimationVisible(isVisible : Boolean){
+        if (isVisible){
+            binding.llAnimation.visibility = View.VISIBLE
+            binding.animationLoading.playAnimation()
+        }else{
+            binding.llAnimation.visibility = View.GONE
+            binding.animationLoading.cancelAnimation()
+        }
+    }
+
 }
