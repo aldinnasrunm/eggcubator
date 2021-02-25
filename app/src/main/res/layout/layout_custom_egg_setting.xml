@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="CustomValue"
+            type="com.alden.eggincubator.models.CustomValueData" />
+        <variable
+            name="CustomCallback"
+            type="com.alden.eggincubator.objects.CustomValueCallback" />
+        <variable
+            name="day"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtDayCustom"
+            style="@style/Text.Reguler.16"
+            android:text="Hari :"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnPlusDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> CustomCallback.onIncreaseDay()}"
+            android:text="+"
+            app:layout_constraintBottom_toBottomOf="@+id/etDayCustom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etDayCustom"
+            app:layout_constraintTop_toTopOf="@+id/etDayCustom" />
+        <TextView
+            android:id="@+id/etDayCustom"
+            android:text="@{CustomCallback.dayes}"
+            android:textAppearance="@style/Text.Reguler.16"
+            app:layout_constraintStart_toEndOf="@id/txtDayCustom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtDayCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtTempMin"
+            style="@style/Text.Reguler.16"
+            android:text="Suhu minimal :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDayCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtTempMax"
+            style="@style/Text.Reguler.16"
+            android:text="Suhu maksimal :"
+            app:layout_constraintTop_toBottomOf="@id/txtTempMin"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtHumMin"
+            style="@style/Text.Reguler.16"
+            android:text="Kelembaban Minimal :"
+            app:layout_constraintTop_toBottomOf="@id/txtTempMax"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtHumMax"
+            style="@style/Text.Reguler.16"
+            android:text="Kelembaban Maksimal :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHumMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

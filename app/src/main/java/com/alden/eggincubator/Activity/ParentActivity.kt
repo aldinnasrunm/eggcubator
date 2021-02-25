@@ -2,8 +2,14 @@ package com.alden.eggincubator.Activity
 
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ComputableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.alden.eggincubator.R
 import com.alden.eggincubator.adapter.ParentAdapter
 import com.alden.eggincubator.databinding.ActivityParentBinding
@@ -14,8 +20,9 @@ import com.google.android.material.tabs.TabLayout
 
 
 @Suppress("DEPRECATION")
+
 class ParentActivity : AppCompatActivity() {
-    lateinit var vLivedata : CompleteTriggerData
+    lateinit var completeTriggerData: CompleteTriggerData
     lateinit var binding : ActivityParentBinding
     private val tabIcons = intArrayOf(
         R.drawable.ic_gray_home,
@@ -25,14 +32,16 @@ class ParentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityParentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        vLivedata= CompleteTriggerData()
-    val mAdapter = ParentAdapter(supportFragmentManager)
+
+
+        val mAdapter = ParentAdapter(supportFragmentManager)
         mAdapter.addFrag(DashboardFragment(), "Beranda")
         mAdapter.addFrag(SettingFragment(), "Pengaturan")
         binding.vpList.apply {
             adapter = mAdapter
             offscreenPageLimit = 1
         }
+
         binding.tabActionList.setupWithViewPager(binding.vpList)
         binding.tabActionList.tabRippleColor = null
         binding.tabActionList.getTabAt(0)?.setIcon(tabIcons[0])
@@ -41,7 +50,10 @@ class ParentActivity : AppCompatActivity() {
             object : TabLayout.ViewPagerOnTabSelectedListener(binding.vpList) {
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     super.onTabSelected(tab)
-                    val tabIconColor = ContextCompat.getColor(this@ParentActivity, R.color.greenMain)
+                    val tabIconColor = ContextCompat.getColor(
+                        this@ParentActivity,
+                        R.color.greenMain
+                    )
                     tab.icon!!.setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN)
                 }
 

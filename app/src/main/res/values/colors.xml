@@ -25,4 +25,5 @@
     <color name="orangeMain">#EF6402</color>
     <color name="redMain">#EE2737</color>
     <color name="dark">#333333</color>
+    <color name="transparent">#00000000</color>
 </resources>
