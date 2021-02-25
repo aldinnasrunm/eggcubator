@@ -23,19 +23,19 @@ class DashboardFragment : Fragment() {
     lateinit var refListener : ValueEventListener
     lateinit var ref : DatabaseReference
     lateinit var mightyDate : LocalDateTime
-    private var binding: FragmentDashboardBinding? = null
+    lateinit var binding: FragmentDashboardBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDashboardBinding.inflate(inflater,container, false)
-        return binding?.root
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        binding?.llAnimation?.visibility = View.VISIBLE
+        isAnimationVisible(true)
         ref =  fbdb.getReference("FirebaseIOT")
         initData()
 
@@ -81,13 +81,21 @@ class DashboardFragment : Fragment() {
         binding?.tvKelembabanStatus?.text = data.humidity+"%"
         binding?.tvInkubasiStatus?.text = "$exceededDay Hari"
         binding?.tvInkubasiSub?.text = "Telur telah diinkubasi $exceededDay hari"
-        binding?.llAnimation?.visibility = View.GONE
+     isAnimationVisible(false)
     }
 
+    private fun isAnimationVisible(isVisible : Boolean){
+        if (isVisible){
+            binding.llAnimation.visibility = View.VISIBLE
+            binding.animationLoading.playAnimation()
+        }else{
+            binding.llAnimation.visibility = View.GONE
+            binding.animationLoading.cancelAnimation()
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         ref.removeEventListener(refListener)
-        binding = null
     }
 }

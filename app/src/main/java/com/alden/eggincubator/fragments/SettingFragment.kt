@@ -21,7 +21,10 @@ private const val TAG = "SettingFragment"
 class SettingFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
     var lampStatus: Boolean = false
+    lateinit var lampListener :ValueEventListener
     lateinit var binding: FragmentSettingBinding
+    val lampRef = fbdb.getReference("FirebaseIOT")
+    val settingRef = fbdb.getReference("SettingData")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -76,8 +79,7 @@ class SettingFragment : Fragment() {
     }
 
     private fun initLampStatus() {
-        val lampRef = fbdb.getReference("FirebaseIOT")
-        lampRef.addValueEventListener(object : ValueEventListener {
+       lampListener =  lampRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var data = snapshot.child("lampu1").value.toString()
                 setLampStatus(data)
@@ -149,11 +151,11 @@ class SettingFragment : Fragment() {
     }
 
     private fun actionShutdown(){
-
+        settingRef.child("isStdown").setValue(1)
     }
 
     private fun actionReset(){
-
+        settingRef.child("isReset").setValue(1)
     }
 
 
@@ -161,4 +163,8 @@ class SettingFragment : Fragment() {
         Toast.makeText(context, "Something wrong", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        lampRef.removeEventListener(lampListener)
+    }
 }

@@ -5,16 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.ActivityChoseEggBinding
 import com.alden.eggincubator.databinding.LayoutCustomEggSettingBinding
 import com.alden.eggincubator.objects.EggType
+import com.alden.eggincubator.objects.EggValueCreator
+import com.google.firebase.database.FirebaseDatabase
 
 private const val TAG = "ChoseEggActivity"
 class ChoseEggActivity : AppCompatActivity() {
     val eggData = EggType()
+    val fbdb = FirebaseDatabase.getInstance()
     lateinit var binding : ActivityChoseEggBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,9 @@ class ChoseEggActivity : AppCompatActivity() {
                if (eggData.getEgg().equals("Custom")){
                    startActivity(Intent(this, ManualSettingActivity::class.java))
                }else{
-                   startActivity(Intent(this, PrepareActivity::class.java))
+                   isAnimationVisible(true)
+                   updateEggType(eggData.getEgg())
+//                   startActivity(Intent(this, PrepareActivity::class.java))
                }
            }else{
                Toast.makeText(this, "please chose egg", Toast.LENGTH_SHORT).show()
@@ -88,13 +94,27 @@ class ChoseEggActivity : AppCompatActivity() {
 
     }
 
-    private fun popUpCustom() {
-        var popBinding = LayoutCustomEggSettingBinding.inflate(LayoutInflater.from(this))
-//        var popUpCustom = LayoutInflater.from(this).inflate(R.layout.layout_custom_egg_setting, null, false)
-        popBinding.btnPlusDay.setOnClickListener { Toast.makeText(this, "plus",Toast.LENGTH_SHORT).show() }
-        AlertDialog.Builder(this, R.style.CustomAlertDialog)
-            .setView(popBinding.root)
-            .show()
+
+    private fun updateEggType(param : String){
+        val eggValueCreator = EggValueCreator()
+
+        val data = eggValueCreator.generateValue(param)
+        val revEgg = fbdb.getReference("EggData").setValue(data)
+        revEgg.addOnSuccessListener {
+            isAnimationVisible(false)
+            startActivity(Intent(this, PrepareActivity::class.java))
+        }
+
+    }
+
+    private fun isAnimationVisible(isVisible : Boolean){
+        if (isVisible){
+            binding.llAnimation.visibility = View.VISIBLE
+            binding.animationLoading.playAnimation()
+        }else{
+            binding.llAnimation.visibility = View.GONE
+            binding.animationLoading.cancelAnimation()
+        }
     }
 
 }
