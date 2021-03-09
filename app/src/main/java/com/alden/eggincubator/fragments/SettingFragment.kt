@@ -158,6 +158,7 @@ class SettingFragment : Fragment() {
 
     private fun actionReset(){
         settingRef.child("isReset").setValue(1)
+        activity?.finish()
     }
 
 

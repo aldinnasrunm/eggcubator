@@ -145,6 +145,7 @@
                         android:layout_height="50dp"
                         android:layout_marginEnd="24dp"
                         android:background="@color/greenMain"
+                        app:cornerRadius="24dp"
                         app:layout_constraintBottom_toBottomOf="@+id/llChickenEgg"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/llChickenEgg" />
