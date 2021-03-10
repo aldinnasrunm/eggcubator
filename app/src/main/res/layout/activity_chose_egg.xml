@@ -144,7 +144,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/greenMain"
+                        android:src="@drawable/ic_chicken_egg_icon"
                         app:cornerRadius="24dp"
                         app:layout_constraintBottom_toBottomOf="@+id/llChickenEgg"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -212,7 +212,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/greenMain"
+                        android:src="@drawable/ic_duck_egg_icon"
                         app:layout_constraintBottom_toBottomOf="@+id/llDuckEgg"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/llDuckEgg" />
@@ -279,7 +279,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/greenMain"
+                        android:src="@drawable/ic_goose_egg_icon"
                         app:layout_constraintBottom_toBottomOf="@+id/llGooseEgg"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/llGooseEgg" />
@@ -346,7 +346,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/greenMain"
+                        android:src="@drawable/ic_quail_egg_icon"
                         app:layout_constraintBottom_toBottomOf="@+id/llQuailEgg"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/llQuailEgg" />
@@ -415,7 +415,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginEnd="24dp"
-                        android:background="@color/greenMain"
+                        android:src="@drawable/ic_custom_egg_icon"
                         app:layout_constraintBottom_toBottomOf="@+id/llCustomEgg"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/llCustomEgg" />

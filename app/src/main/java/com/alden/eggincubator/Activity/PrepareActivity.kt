@@ -28,6 +28,7 @@ class PrepareActivity : AppCompatActivity() {
         }
         binding.btnPrepareNext.setOnClickListener {
             startActivity(Intent(this, StartActivity::class.java))
+            finish()
         }
 
     }

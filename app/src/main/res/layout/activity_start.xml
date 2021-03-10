@@ -89,7 +89,7 @@
             <ImageView
                 android:id="@+id/ivStat"
                 android:layout_marginTop="24dp"
-                android:background="@color/greenLight"
+                android:src="@drawable/ic_eggmascot_inside_box"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

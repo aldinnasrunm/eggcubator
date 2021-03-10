@@ -24,6 +24,8 @@
     <color name="purpleMain">#822A8F</color>
     <color name="orangeMain">#EF6402</color>
     <color name="redMain">#EE2737</color>
+    <color name="pinkMain">#F2BEA7</color>
+    <color name="brownMain">#B56F40</color>
     <color name="dark">#333333</color>
     <color name="transparent">#00000000</color>
 </resources>
