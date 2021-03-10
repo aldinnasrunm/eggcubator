@@ -41,20 +41,20 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnChange.setOnClickListener {
-         startActivity(Intent(this, WelcomeActivity::class.java))
-        }
-        binding.btnOff.setOnClickListener {
-
-        }
-
-        binding.btnShowTemperature.setOnClickListener {
-            startActivity(Intent(this, ParentActivity::class.java))
-        }
-
-        binding.btnOnBoarding.setOnClickListener{
-            startActivity(Intent(this, OnBoardingActivity::class.java))
-        }
+//        binding.btnChange.setOnClickListener {
+//         startActivity(Intent(this, WelcomeActivity::class.java))
+//        }
+//        binding.btnOff.setOnClickListener {
+//
+//        }
+//
+//        binding.btnShowTemperature.setOnClickListener {
+//            startActivity(Intent(this, ParentActivity::class.java))
+//        }
+//
+//        binding.btnOnBoarding.setOnClickListener{
+//            startActivity(Intent(this, OnBoardingActivity::class.java))
+//        }
 
 
     }
