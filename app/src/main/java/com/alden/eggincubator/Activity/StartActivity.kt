@@ -56,7 +56,7 @@ class StartActivity : AppCompatActivity() {
     }
 
     private fun initView(param : String){
-        binding.tvSubTitleStart.text = "Telur kamu akan menetas dalam $param hari lagi :)"
+        binding.tvSubTitleStart.text = "Telur kamu akan menetas setelah $param hari waktu inkubasi :)"
         isAnimationVisible(false)
     }
 
