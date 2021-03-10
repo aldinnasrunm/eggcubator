@@ -2,10 +2,10 @@ package com.alden.eggincubator.Activity
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.alden.eggincubator.databinding.ActivityStartBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,6 +20,7 @@ class StartActivity : AppCompatActivity() {
     val eggRef = fbdb.getReference("EggData")
     val waterInterfal :Long = 4
     val ref = fbdb.getReference("FirebaseIOT")
+    val refSetting = fbdb.getReference("SettingData")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,9 @@ class StartActivity : AppCompatActivity() {
         initDay()
         binding.btnStartNext.setOnClickListener {
             updateMightyDay()
-            startActivity(Intent(this, ParentActivity::class.java))
+            val intent = Intent(applicationContext, ParentActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
             finish()
         }
 
@@ -40,10 +43,11 @@ class StartActivity : AppCompatActivity() {
         val current = LocalDateTime.now()
         ref.child("mightyDay").setValue(current.toString())
         ref.child("waterDay").setValue(current.plusDays(waterInterfal).toString())
+        ref.child("isStart").setValue(1)
     }
 
     private fun initDay() {
-        eggEvenListener = eggRef.child("day").addValueEventListener(object : ValueEventListener{
+        eggEvenListener = eggRef.child("day").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = snapshot.value.toString()
                 initView(data)
@@ -55,12 +59,12 @@ class StartActivity : AppCompatActivity() {
         })
     }
 
-    private fun initView(param : String){
+    private fun initView(param: String){
         binding.tvSubTitleStart.text = "Telur kamu akan menetas setelah $param hari waktu inkubasi :)"
         isAnimationVisible(false)
     }
 
-    private fun isAnimationVisible(isVisible : Boolean){
+    private fun isAnimationVisible(isVisible: Boolean){
         if (isVisible){
             binding.llAnimation.visibility = View.VISIBLE
             binding.animationLoading.playAnimation()

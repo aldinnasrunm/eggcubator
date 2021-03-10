@@ -103,6 +103,7 @@ class ChoseEggActivity : AppCompatActivity() {
         revEgg.addOnSuccessListener {
             isAnimationVisible(false)
             startActivity(Intent(this, PrepareActivity::class.java))
+            finish()
         }
 
     }

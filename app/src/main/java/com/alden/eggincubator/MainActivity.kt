@@ -78,7 +78,10 @@ class MainActivity : AppCompatActivity() {
         if (!stateReset && stateStart){
             Toast.makeText(this, "!reset, start", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, ParentActivity::class.java))
-        }else if (!stateReset && !stateStart){
+        }else if (stateReset && stateStart){
+            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, WelcomeActivity::class.java))
+        }else if (stateReset && !stateStart){
             Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, WelcomeActivity::class.java))
         }else{
