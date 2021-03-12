@@ -43,7 +43,8 @@ class StartActivity : AppCompatActivity() {
         val current = LocalDateTime.now()
         ref.child("mightyDay").setValue(current.toString())
         ref.child("waterDay").setValue(current.plusDays(waterInterfal).toString())
-        ref.child("isStart").setValue(1)
+        refSetting.child("isStart").setValue(1)
+        refSetting.child("isReset").setValue(0)
     }
 
     private fun initDay() {

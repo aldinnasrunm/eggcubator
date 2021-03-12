@@ -20,10 +20,14 @@ class SystemOffActivity : AppCompatActivity() {
         binding.btnOnSystem.setOnClickListener {
             ref.child("isShutdown").setValue(0).addOnSuccessListener {
 //                startActivity(Intent(this, ParentActivity::class.java))
-                finish()
             }
+            getFinish()
         }
 
+    }
+
+    private fun getFinish(){
+        this.finish()
     }
 
     override fun onBackPressed() {
