@@ -20,8 +20,8 @@ class SystemOffActivity : AppCompatActivity() {
         binding.btnOnSystem.setOnClickListener {
             ref.child("isShutdown").setValue(0).addOnSuccessListener {
 //                startActivity(Intent(this, ParentActivity::class.java))
+                finish()
             }
-            getFinish()
         }
 
     }

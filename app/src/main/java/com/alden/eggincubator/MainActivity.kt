@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.alden.eggincubator.Activity.*
 import com.alden.eggincubator.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -19,9 +20,10 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    val mAuth = FirebaseAuth.getInstance()
     val fbdb = FirebaseDatabase.getInstance()
     val settingRef = fbdb.getReference("SettingData")
-    lateinit var settingListener : ValueEventListener
+    lateinit var settingListener: ValueEventListener
     private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +32,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(Color.TRANSPARENT)
         }
 
         GlobalScope.launch {
             delay(2000)
-            isReady()
+//            isReady()
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             finish()
         }
 
@@ -59,35 +63,41 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun isReady(){
-        settingListener = settingRef.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val isReset = snapshot.child("isReset").value.toString()
-                val isStart = snapshot.child("isStart").value.toString()
-                val stateReset = isReset == "1"
-                val stateStart = isStart == "1"
-                actionStartUp(stateReset, stateStart)
-            }
+//    private fun isReady() {
+//        if (mAuth.currentUser != null) {
+//
+//            settingListener = settingRef.addValueEventListener(object : ValueEventListener {
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    val isReset = snapshot.child("isReset").value.toString()
+//                    val isStart = snapshot.child("isStart").value.toString()
+//                    val stateReset = isReset == "1"
+//                    val stateStart = isStart == "1"
+//                    actionStartUp(stateReset, stateStart)
+//                }
+//
+//                override fun onCancelled(error: DatabaseError) {
+//                }
+//            })
+//        }else{
+//            startActivity(Intent(this, LoginActivity::class.java))
+//        }
+//    }
+//
+//    private fun actionStartUp(stateReset: Boolean, stateStart: Boolean) {
+//        if (!stateReset && stateStart) {
+//            Toast.makeText(this, "!reset, start", Toast.LENGTH_SHORT).show()
+//            startActivity(Intent(this, ParentActivity::class.java))
+//        } else if (stateReset && stateStart) {
+//            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
+//            startActivity(Intent(this, WelcomeActivity::class.java))
+//        } else if (stateReset && !stateStart) {
+//            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
+//            startActivity(Intent(this, WelcomeActivity::class.java))
+//        } else {
+//            Toast.makeText(this, "reset, start", Toast.LENGTH_SHORT).show()
+//            startActivity(Intent(this, WelcomeActivity::class.java))
+//        }
+//    }
 
-            override fun onCancelled(error: DatabaseError) {
-            }
-        })
-    }
-
-    private fun actionStartUp(stateReset: Boolean, stateStart: Boolean) {
-        if (!stateReset && stateStart){
-            Toast.makeText(this, "!reset, start", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, ParentActivity::class.java))
-        }else if (stateReset && stateStart){
-            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, WelcomeActivity::class.java))
-        }else if (stateReset && !stateStart){
-            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, WelcomeActivity::class.java))
-        }else{
-            Toast.makeText(this, "reset, start", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, WelcomeActivity::class.java))
-        }
-    }
 
 }

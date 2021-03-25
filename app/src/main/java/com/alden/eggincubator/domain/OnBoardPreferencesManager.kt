@@ -19,6 +19,9 @@ class OnBoardPreferencesManager(_context: Context) {
         }
 
 
+
+
+
     init {
         pref = _context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         editor = pref.edit()

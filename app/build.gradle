@@ -50,6 +50,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.5.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -65,7 +68,7 @@ dependencies {
     implementation 'com.airbnb.android:lottie:1.0.0'
     //leakcanary
         // debugImplementation because LeakCanary should only run in debug builds.
-        debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+//        debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
     //viewpager
     implementation 'androidx.viewpager:viewpager:1.0.0'
     //coroutines

@@ -39,4 +39,11 @@
     <string name="ok_text">Iyaa</string>
     <string name="cancel_text">Tidak</string>
     <string name="ayo_jadi_sobat">Ayo jadi Sobat Telurku dan tetaskan telurmu bersama kami</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>
