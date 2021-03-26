@@ -119,6 +119,13 @@ class DashboardFragment : Fragment() {
             )
         }
 
+        if(remainDay < 1){
+            popUpUniverse(
+                "Telur Sudah menetas",
+            "Cek apakah telur kamu sudah menetas"
+                )
+        }
+
         isAnimationVisible(false)
     }
 
