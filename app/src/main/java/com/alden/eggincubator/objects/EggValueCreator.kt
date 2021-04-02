@@ -6,10 +6,10 @@ public class EggValueCreator() {
     var eggDataValue = EggDataValue()
     fun generateValue(param : String) : EggDataValue{
         when(param){
-                "Chicken" -> eggDataValue = EggDataValue(21, 36,39)
-                "Duck" -> eggDataValue = EggDataValue(28, 36,39)
-                "Goose" -> eggDataValue = EggDataValue(35, 33,39)
-                "Quail" -> eggDataValue = EggDataValue(14, 33,39)
+                "Ayam" -> eggDataValue = EggDataValue(21, 36,39)
+                "Bebek" -> eggDataValue = EggDataValue(28, 36,39)
+                "Entok" -> eggDataValue = EggDataValue(35, 33,39)
+                "Puyuh" -> eggDataValue = EggDataValue(14, 33,39)
                 else -> "null"
         }
         return  eggDataValue

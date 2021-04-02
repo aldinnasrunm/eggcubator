@@ -121,9 +121,9 @@
     </style>
 
     <style name="Text.Reguler.Thin.Small" parent="TextAppearance.AppCompat">
-        <item name="fontFamily">@font/poppins_light</item>
+        <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/dark</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">9sp</item>
     </style>
 <!--    RadioButton-->
     <style name="Custom.Green.Radio" parent="Widget.AppCompat.CompoundButton.RadioButton">

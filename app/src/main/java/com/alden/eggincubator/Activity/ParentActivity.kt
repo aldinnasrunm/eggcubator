@@ -1,9 +1,9 @@
 package com.alden.eggincubator.Activity
-
 import android.content.Intent
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
@@ -86,8 +86,13 @@ class ParentActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var data = snapshot.child("isShutdown").value.toString()
                 if (data.equals("1")){
-                    startActivity(Intent(this@ParentActivity, SystemOffActivity::class.java))
-                    finish()
+
+//                    finishActivity(0)
+
+
+                    startActivity(Intent(this@ParentActivity, SystemOffActivity::class.java)).apply {
+                        finish()
+                    }
                 }else{
 
                 }
@@ -99,9 +104,23 @@ class ParentActivity : AppCompatActivity() {
         })
     }
 
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Toast.makeText(this, "Back pressed", Toast.LENGTH_SHORT).show()
+        finishActivity(0)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        chekSystemOff()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         binding.vpList.adapter = null
     }
 }
+
+
 

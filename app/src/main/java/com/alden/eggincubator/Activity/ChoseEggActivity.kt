@@ -46,10 +46,10 @@ class ChoseEggActivity : AppCompatActivity() {
     //check last data
     private fun initData(data :String) {
         when(data){
-            "Chicken" -> binding.rbChickenEgg.isChecked = true
-            "Duck" -> binding.rbDuckEgg.isChecked = true
-            "Goose" -> binding.rbGooseEgg.isChecked = true
-            "Quail" -> binding.rbQuailEgg.isChecked = true
+            "Ayam" -> binding.rbChickenEgg.isChecked = true
+            "Bebek" -> binding.rbDuckEgg.isChecked = true
+            "Entok" -> binding.rbGooseEgg.isChecked = true
+            "Puyuh" -> binding.rbQuailEgg.isChecked = true
             "Custom" -> binding.rbCustomEgg.isChecked = true
             else -> "a"
         }
@@ -61,14 +61,14 @@ class ChoseEggActivity : AppCompatActivity() {
             binding.rbGooseEgg.isChecked = false
             binding.rbQuailEgg.isChecked = false
             binding.rbCustomEgg.isChecked = false
-            eggData.setEgg("Chicken")
+            eggData.setEgg("Ayam")
         }
         binding.rbDuckEgg.setOnClickListener {
             binding.rbCustomEgg.isChecked = false
             binding.rbChickenEgg.isChecked = false
             binding.rbGooseEgg.isChecked = false
             binding.rbQuailEgg.isChecked = false
-            eggData.setEgg("Duck")
+            eggData.setEgg("Bebek")
         }
         binding.rbCustomEgg.setOnClickListener {
             binding.rbDuckEgg.isChecked = false
@@ -82,14 +82,14 @@ class ChoseEggActivity : AppCompatActivity() {
             binding.rbChickenEgg.isChecked = false
             binding.rbChickenEgg.isChecked = false
             binding.rbQuailEgg.isChecked = false
-            eggData.setEgg("Goose")
+            eggData.setEgg("Entok")
         }
         binding.rbQuailEgg.setOnClickListener {
             binding.rbDuckEgg.isChecked = false
             binding.rbChickenEgg.isChecked = false
             binding.rbGooseEgg.isChecked = false
             binding.rbCustomEgg.isChecked = false
-            eggData.setEgg("Quail")
+            eggData.setEgg("Puyuh")
         }
 
     }
@@ -100,6 +100,7 @@ class ChoseEggActivity : AppCompatActivity() {
 
         val data = eggValueCreator.generateValue(param)
         val revEgg = fbdb.getReference("EggData").setValue(data)
+        val rev = fbdb.getReference("FirebaseIOT").child("eggName").setValue(param)
         revEgg.addOnSuccessListener {
             isAnimationVisible(false)
             startActivity(Intent(this, PrepareActivity::class.java))

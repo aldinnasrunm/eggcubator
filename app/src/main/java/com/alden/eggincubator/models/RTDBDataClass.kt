@@ -6,5 +6,6 @@ data class RTDBDataClass(
     var humidity : String?,
     var lampu1 : String?,
     var mightyDay : String?,
-    var waterDay : String?
+    var waterDay : String?,
+    var eggName : String?
 )

@@ -1,4 +1,4 @@
-package com.alden.eggincubator.fragments
+        package com.alden.eggincubator.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -18,10 +18,11 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 private const val TAG = "SettingFragment"
+
 class SettingFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
     var lampStatus: Boolean = false
-    lateinit var lampListener :ValueEventListener
+    lateinit var lampListener: ValueEventListener
     lateinit var binding: FragmentSettingBinding
     val lampRef = fbdb.getReference("FirebaseIOT")
     val settingRef = fbdb.getReference("SettingData")
@@ -42,66 +43,69 @@ class SettingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        initLampStatus()
+//        initLampStatus()
 
         binding.cvReboot.setOnClickListener {
             popUpUniverse(
                 "reset",
-                "Yakin ingin Reset?",
-                "jika reset maka seluruh datamu akan hilang"
+                "Mulai Ulang",
+                "Apa kamu yakin mau mulai ulang\n" +
+                        "alat penetas telur?"
             )
         }
 
         binding.cvShutDown.setOnClickListener {
             popUpUniverse(
                 "shutdown",
-                "Yakin ingin mematikan System?",
-                "Mematikan system maka anda harus menghidupkan alat lagi secara manual"
+                "Matikan Alat",
+                "Apa kamu yakin mau mematikan\n" +
+                        "alat penetas telur?"
             )
 
         }
 
-        binding.cvLamp.setOnClickListener {
-            if(lampStatus){
-                popUpUniverse(
-                    "lampOff",
-                    "Yakin ingin Mematikan Lampu?",
-                    "Kalo lampunya mati nanti kedinginan lho"
-                )
-            }else {
-                popUpUniverse(
-                    "lampOn",
-                    "Hidupkan Lampu?",
-                    "Hidupkan lampu untuk menyinari duniamu mwehehehe"
-                )
-            }
-        }
+//        binding.cvLamp.setOnClickListener {
+//            if(lampStatus){
+//                popUpUniverse(
+//                    "lampOff",
+//                    "Matikan Lampu",
+//                    "Apa kamu yakin mau mematikan lampu\n" +
+//                            "alat penetas telur?"
+//                )
+//            }else {
+//                popUpUniverse(
+//                    "lampOn",
+//                    "Hidupkan Lampu",
+//                    "Hidupkan lampu untuk menyinari duniamu mwehehehe"
+//                )
+//            }
+//        }
     }
 
-    private fun initLampStatus() {
-       lampListener =  lampRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                var data = snapshot.child("lampu1").value.toString()
-                setLampStatus(data)
-            }
+//    private fun initLampStatus() {
+//       lampListener =  lampRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                var data = snapshot.child("lampu1").value.toString()
+//                setLampStatus(data)
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.w(TAG, "onCancelled: ", error.toException())
+//            }
+//        })
+//    }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.w(TAG, "onCancelled: ", error.toException())
-            }
-        })
-    }
-
-    private fun setLampStatus(data: String) {
-        lampStatus = data == "1"
-        if (lampStatus){
-            binding.tvLampStatus.text ="Matikan Lampu"
-        }else{
-            binding.tvLampStatus.text ="Hidupkan Lampu"
-        }
-    }
+//    private fun setLampStatus(data: String) {
+//        lampStatus = data == "1"
+//        if (lampStatus){
+//            binding.tvLampStatus.text ="Matikan Lampu"
+//        }else{
+//            binding.tvLampStatus.text ="Hidupkan Lampu"
+//        }
+//    }
 
 
-    private fun popUpUniverse(command : String, title: String, subTitle: String) {
+    private fun popUpUniverse(command: String, title: String, subTitle: String) {
         //initialize View
         val vView: View = LayoutInflater.from(context).inflate(R.layout.popup_reboot, null, false)
         val btnOk: Button = vView.findViewById(R.id.btnPopUpOk)
@@ -129,8 +133,8 @@ class SettingFragment : Fragment() {
     }
 
 
-    private fun fowardAction(param : String){
-        when(param){
+    private fun fowardAction(param: String) {
+        when (param) {
             "lampOff" -> changeLampStatus(true)
             "lampOn" -> changeLampStatus(false)
             "shutdown" -> actionShutdown()
@@ -140,22 +144,24 @@ class SettingFragment : Fragment() {
     }
 
 
-    private fun changeLampStatus(wantDead : Boolean){
-        if (wantDead){
+    private fun changeLampStatus(wantDead: Boolean) {
+        if (wantDead) {
             fbdb.getReference("FirebaseIOT").child("lampu1").setValue("0")
-        }else{
+        } else {
             fbdb.getReference("FirebaseIOT").child("lampu1").setValue("1")
         }
 
 
     }
 
-    private fun actionShutdown(){
-        settingRef.child("isShutdown").setValue(1)
-        activity?.finish()
+    private fun actionShutdown() {
+        settingRef.child("isShutdown").setValue(1).addOnCompleteListener {
+            activity?.finish()
+        }
+
     }
 
-    private fun actionReset(){
+    private fun actionReset() {
         settingRef.child("isReset").setValue(1)
         settingRef.child("isStart").setValue(1)
         activity?.finish()
@@ -168,6 +174,6 @@ class SettingFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        lampRef.removeEventListener(lampListener)
+//        lampRef.removeEventListener(lampListener)
     }
 }

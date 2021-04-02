@@ -72,13 +72,16 @@ class DashboardFragment : Fragment() {
                 var dataL = snapshot.child("lampu1").value.toString()
                 var dataD = snapshot.child("mightyDay").value.toString()
                 var dataW = snapshot.child("waterDay").value.toString()
+                var dataN = snapshot.child("eggName").value.toString()
+
 
                 var rtdbDataClass = RTDBDataClass(
                     dataT,
                     dataH,
                     dataL,
                     dataD,
-                    dataW
+                    dataW,
+                    dataN
                 )
                 initView(rtdbDataClass)
             }
@@ -107,6 +110,7 @@ class DashboardFragment : Fragment() {
         binding.tvKelembabanStatus.text = data.humidity+"%"
         binding.tvInkubasiStatus.text = "$exceededDay Hari"
         binding.tvInkubasiSub.text = "Telur telah diinkubasi $exceededDay hari"
+        binding.tvEggName.text = "Jenis Telur : ${data.eggName}"
 
         if (remainDayWater > 0){
             binding.tvAirStatus.text = "$exceededWater hari"
@@ -120,13 +124,23 @@ class DashboardFragment : Fragment() {
         }
 
         if(remainDay < 1){
-            popUpUniverse(
-                "Telur Sudah menetas",
-            "Cek apakah telur kamu sudah menetas"
-                )
+            popUpCrackEgg()
         }
 
         isAnimationVisible(false)
+    }
+
+    private fun popUpCrackEgg(){
+        val vView: View = LayoutInflater.from(context).inflate(R.layout.popup_crackegg, null, false)
+        val btnCancel: Button = vView.findViewById(R.id.btnPopUpCancel)
+
+        val uniAlert = AlertDialog.Builder(context, R.style.CustomAlertDialog)
+            .setView(vView)
+            .setCancelable(false)
+        val uniAlertDialog = uniAlert.show()
+        btnCancel.setOnClickListener {
+            uniAlertDialog.cancel()
+        }
     }
 
 
@@ -180,4 +194,6 @@ class DashboardFragment : Fragment() {
         super.onDestroyView()
         ref.removeEventListener(refListener)
     }
+
+
 }

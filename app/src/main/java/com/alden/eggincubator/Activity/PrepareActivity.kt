@@ -19,7 +19,7 @@ class PrepareActivity : AppCompatActivity() {
             "Pastikan steker tercolokan ke stop kontak",
             "Pastikan wadah telur benar",
             "Pastikan air sudah terisi",
-            "Pastikan air sudah terisi"
+            "Disarankan Membaca Do'a"
         )
         val mAdapter = KonfirmasiAdapter(arrayKeterangan)
         binding.rvKonfirmasi.apply {

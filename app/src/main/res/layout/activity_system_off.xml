@@ -38,7 +38,7 @@
         android:layout_marginStart="24dp"
         style="@style/Text.Reguler.Medium"
         android:textAlignment="center"
-        android:text="The quick brown fox jump over the lazy dog"
+        android:text="Hidupkan alat penetas telur agar\nbisa digunakan kembali"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <Button
