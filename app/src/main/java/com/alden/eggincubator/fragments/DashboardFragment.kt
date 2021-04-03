@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.alden.eggincubator.R
@@ -20,7 +21,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-
+private const val TAG = "DashboardFragment"
 class DashboardFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
     lateinit var refListener : ValueEventListener
@@ -32,6 +33,16 @@ class DashboardFragment : Fragment() {
     var estimateDay : Int = 0
     lateinit var binding: FragmentDashboardBinding
     val waterInterfal : Long = 4
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d(TAG, "handleOnBackPressed: dashboard fragment activity ended")
+                activity?.finish()
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +58,9 @@ class DashboardFragment : Fragment() {
         ref =  fbdb.getReference("FirebaseIOT")
         getDate()
         initData()
+
+
+
 
     }
 
@@ -105,7 +119,13 @@ class DashboardFragment : Fragment() {
         val remainDay = estimateDay - exceededDay.toInt()
         var remainDayWater = exceededWater.toInt()
 
-        binding.tvShowRemainDay.text = "$remainDay hari lagi telur\nkamu akan\nmenetas "
+        if (remainDay < 1){
+            binding.tvShowRemainDay.text = "Telur kamu telah menetas"
+        }else{
+
+            binding.tvShowRemainDay.text = "$remainDay hari lagi telur\nkamu akan\nmenetas "
+        }
+
         binding.tvTemperatureStatus.text = data.temperature +"°C"
         binding.tvKelembabanStatus.text = data.humidity+"%"
         binding.tvInkubasiStatus.text = "$exceededDay Hari"
@@ -195,5 +215,10 @@ class DashboardFragment : Fragment() {
         ref.removeEventListener(refListener)
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        isAnimationVisible(true)
+        getDate()
+        initData()
+    }
 }

@@ -43,6 +43,32 @@ class ParentActivity : AppCompatActivity() {
 
         chekSystemOff()
 
+
+    }
+
+    private fun chekSystemOff() {
+        eggListener = eggRef.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var data = snapshot.child("isShutdown").value.toString()
+                if (data.equals("1")){
+
+//                    finishActivity(0)
+                    startActivity(Intent(this@ParentActivity, SystemOffActivity::class.java))
+                    finish()
+                }else{
+                    initResource()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+
+//        eggRef.removeEventListener(eggListener)
+    }
+
+    private fun initResource(){
         val mAdapter = ParentAdapter(supportFragmentManager)
         mAdapter.addFrag(DashboardFragment(), "Beranda")
         mAdapter.addFrag(SettingFragment(), "Pengaturan")
@@ -78,37 +104,13 @@ class ParentActivity : AppCompatActivity() {
                 }
             }
         )
-
     }
-
-    private fun chekSystemOff() {
-        eggListener = eggRef.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                var data = snapshot.child("isShutdown").value.toString()
-                if (data.equals("1")){
-
-//                    finishActivity(0)
-
-
-                    startActivity(Intent(this@ParentActivity, SystemOffActivity::class.java)).apply {
-                        finish()
-                    }
-                }else{
-
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })
-    }
-
 
     override fun onBackPressed() {
         super.onBackPressed()
+        finish()
         Toast.makeText(this, "Back pressed", Toast.LENGTH_SHORT).show()
-        finishActivity(0)
+
     }
 
     override fun onRestart() {

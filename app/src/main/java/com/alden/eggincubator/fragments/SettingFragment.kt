@@ -1,23 +1,23 @@
         package com.alden.eggincubator.fragments
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.alden.eggincubator.Activity.SystemOffActivity
 import com.alden.eggincubator.R
 import com.alden.eggincubator.databinding.FragmentSettingBinding
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-private const val TAG = "SettingFragment"
+
+        private const val TAG = "SettingFragment"
 
 class SettingFragment : Fragment() {
     val fbdb = FirebaseDatabase.getInstance()
@@ -156,7 +156,9 @@ class SettingFragment : Fragment() {
 
     private fun actionShutdown() {
         settingRef.child("isShutdown").setValue(1).addOnCompleteListener {
-            activity?.finish()
+//            val intent = Intent(view!!.context, SystemOffActivity::class.java)
+//            view!!.context.startActivity(intent)
+            activity!!.finish()
         }
 
     }
