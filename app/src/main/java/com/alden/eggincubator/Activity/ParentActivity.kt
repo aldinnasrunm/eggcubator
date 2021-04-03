@@ -42,7 +42,7 @@ class ParentActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         chekSystemOff()
-
+        initResource()
 
     }
 
@@ -56,7 +56,7 @@ class ParentActivity : AppCompatActivity() {
                     startActivity(Intent(this@ParentActivity, SystemOffActivity::class.java))
                     finish()
                 }else{
-                    initResource()
+
                 }
             }
 
@@ -74,7 +74,7 @@ class ParentActivity : AppCompatActivity() {
         mAdapter.addFrag(SettingFragment(), "Pengaturan")
         binding.vpList.apply {
             adapter = mAdapter
-            offscreenPageLimit = 1
+            offscreenPageLimit = 2
         }
 
         binding.tabActionList.setupWithViewPager(binding.vpList)
@@ -109,8 +109,8 @@ class ParentActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
-        Toast.makeText(this, "Back pressed", Toast.LENGTH_SHORT).show()
-
+//        Toast.makeText(this, "Back pressed", Toast.LENGTH_SHORT).show()
+        this.finishAffinity();
     }
 
     override fun onRestart() {

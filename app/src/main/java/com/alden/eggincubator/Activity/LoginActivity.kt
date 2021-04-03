@@ -3,6 +3,7 @@ package com.alden.eggincubator.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.alden.eggincubator.R
@@ -28,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        isAnimationVisible(false)
 
         binding.btnLogin.setOnClickListener {
             cekPassword(binding.etId.text.toString())
@@ -38,9 +40,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun cekPassword(id: String) {
         if (id.equals("3ggcubat0r")) {
+           isAnimationVisible(true)
             isReady()
         //            startActivity(Intent(this, ParentActivity::class.java))
-            finish()
+//            finish()
         } else {
             binding.etId.setError("ID yang kamu masukkan salah :(")
         }
@@ -70,16 +73,34 @@ class LoginActivity : AppCompatActivity() {
         if (!stateReset && stateStart) {
 //            Toast.makeText(this, "!reset, start", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, ParentActivity::class.java))
+            isAnimationVisible(false)
+            finish()
         } else if (stateReset && stateStart) {
 //            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, WelcomeActivity::class.java))
+            isAnimationVisible(false)
+            finish()
         } else if (stateReset && !stateStart) {
 //            Toast.makeText(this, "!reset, !start", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, WelcomeActivity::class.java))
+            isAnimationVisible(false)
+            finish()
         } else {
 //            Toast.makeText(this, "reset, start", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, WelcomeActivity::class.java))
+            isAnimationVisible(false)
+            finish()
         }
     }
 
+
+    private fun isAnimationVisible(isVisible: Boolean){
+        if (isVisible){
+            binding.llAnimation.visibility = View.VISIBLE
+            binding.animationLoading.playAnimation()
+        }else{
+            binding.llAnimation.visibility = View.GONE
+            binding.animationLoading.cancelAnimation()
+        }
+    }
 }

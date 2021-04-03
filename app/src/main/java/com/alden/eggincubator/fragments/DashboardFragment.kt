@@ -34,15 +34,15 @@ class DashboardFragment : Fragment() {
     lateinit var binding: FragmentDashboardBinding
     val waterInterfal : Long = 4
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.d(TAG, "handleOnBackPressed: dashboard fragment activity ended")
-                activity?.finish()
-            }
-        })
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                Log.d(TAG, "handleOnBackPressed: dashboard fragment activity ended")
+//                activity?.finish()
+//            }
+//        })
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,12 +60,10 @@ class DashboardFragment : Fragment() {
         initData()
 
 
-
-
     }
 
     fun getDate(){
-        refEgg.child("day").addListenerForSingleValueEvent(object : ValueEventListener{
+        refEgg.child("day").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val x = snapshot.getValue().toString()
                 estimateDay = x.toInt()
